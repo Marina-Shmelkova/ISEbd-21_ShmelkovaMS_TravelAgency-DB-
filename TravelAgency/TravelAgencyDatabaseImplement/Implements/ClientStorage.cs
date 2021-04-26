@@ -7,6 +7,7 @@ using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Enums;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.Implements
 {
@@ -109,7 +110,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             model.Contract = client.Contract.ToDictionary(x => x.Contractid, x => x.Countnumberhotel);
             model.Email = client.Email;
             model.Password = client.Password;
-            model.Status = (UserRoles)Enum.Parse(typeof(UserRoles), client.Status.ToString());
+            model.Status = (UserRoles)client.Status;
             return model;
         }
     }

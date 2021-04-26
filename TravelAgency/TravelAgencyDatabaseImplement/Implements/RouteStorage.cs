@@ -5,6 +5,7 @@ using System.Linq;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.Implements
 {
@@ -14,19 +15,19 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                return context.Route.Include(x => x.Transport).Include(x => x.Contract).Select(CreateModel)
+                return context.Route.Include(x => x.Transport).Select(CreateModel)
                 .ToList();
             }
         }
         public List<RouteViewModel> GetFilteredList(RouteBindingModel model)
         {
-            if (model == null)  
+            if (model == null)
             {
                 return null;
             }
             using (var context = new TravelAgencyContext())
             {
-                return context.Route.Include(x => x.Transport).Include(x => x.Contract)
+                return context.Route.Include(x => x.Transport)
                 .Where(rec => rec.Cityto == model.Cityto)
                 .Select(CreateModel)
                 .ToList();
@@ -40,7 +41,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                var route = context.Route.Include(x => x.Cityto).Include(x => x.Contract)
+                var route = context.Route.Include(x => x.Cityto)
                 .FirstOrDefault(rec => rec.Routeid == model.Id);
                 return route != null ? CreateModel(route) :
                 null;
@@ -85,7 +86,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         }
         private Route CreateModel(RouteBindingModel model, Route route)
         {
-            route.Сityfrom = model.Сityfrom;
+            route.Сityfrom = model.Cityfrom;
             route.Cityto = model.Cityto;
             return route;
         }
@@ -96,6 +97,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             model.Id = route.Routeid;
             model.Сityfrom = route.Сityfrom;
             model.Cityto = route.Cityto;
+            model.Price = route.Transport.Priceticket;
             return model;
         }
     }

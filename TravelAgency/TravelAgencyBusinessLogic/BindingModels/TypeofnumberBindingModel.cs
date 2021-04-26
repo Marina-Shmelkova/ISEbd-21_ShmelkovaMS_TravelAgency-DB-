@@ -8,6 +8,6 @@ namespace TravelAgencyBusinessLogic.BindingModels
     {
         public int? Id { get; set; }
         public string Viewnumber { get; set; }
-        public Dictionary<int, int> Numberofhotel { get; set; }
+        public Dictionary<int, decimal> Numberofhotel { get; set; }
     }
 }

@@ -51,15 +51,16 @@ namespace TravelAgencyView
             this.buttonSingIn.TabIndex = 2;
             this.buttonSingIn.Text = "Войти";
             this.buttonSingIn.UseVisualStyleBackColor = true;
+            this.buttonSingIn.Click += new System.EventHandler(this.buttonSingIn_Click);
             // 
-            // FormMain
+            // FormEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 162);
             this.Controls.Add(this.buttonSingOut);
             this.Controls.Add(this.buttonSingIn);
-            this.Name = "FormMain";
+            this.Name = "FormEntry";
             this.Text = "Вход";
             this.ResumeLayout(false);
 

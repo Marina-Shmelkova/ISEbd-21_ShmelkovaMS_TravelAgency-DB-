@@ -33,12 +33,11 @@ namespace TravelAgencyView
             this.labelCityFrom = new System.Windows.Forms.Label();
             this.labelCityTo = new System.Windows.Forms.Label();
             this.textBoxCityTo = new System.Windows.Forms.TextBox();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonTransport = new System.Windows.Forms.Button();
-            this.textBoxPrice = new System.Windows.Forms.TextBox();
-            this.labelPrice = new System.Windows.Forms.Label();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.labelTransport = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,18 +73,9 @@ namespace TravelAgencyView
             this.textBoxCityTo.Size = new System.Drawing.Size(132, 20);
             this.textBoxCityTo.TabIndex = 24;
             // 
-            // dataGridView
-            // 
-            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(12, 130);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(337, 208);
-            this.dataGridView.TabIndex = 25;
-            // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(388, 283);
+            this.buttonCancel.Location = new System.Drawing.Point(255, 344);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(97, 23);
             this.buttonCancel.TabIndex = 27;
@@ -95,7 +85,7 @@ namespace TravelAgencyView
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(388, 221);
+            this.buttonSave.Location = new System.Drawing.Point(105, 344);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(97, 23);
             this.buttonSave.TabIndex = 26;
@@ -103,50 +93,51 @@ namespace TravelAgencyView
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // buttonTransport
+            // dataGridView
             // 
-            this.buttonTransport.Location = new System.Drawing.Point(388, 154);
-            this.buttonTransport.Name = "buttonTransport";
-            this.buttonTransport.Size = new System.Drawing.Size(97, 23);
-            this.buttonTransport.TabIndex = 29;
-            this.buttonTransport.Text = "Передвижение";
-            this.buttonTransport.UseVisualStyleBackColor = true;
-            this.buttonTransport.Click += new System.EventHandler(this.buttonTransport_Click);
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(12, 108);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(445, 209);
+            this.dataGridView.TabIndex = 28;
             // 
-            // textBoxPrice
+            // buttonAdd
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(146, 104);
-            this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(132, 20);
-            this.textBoxPrice.TabIndex = 30;
-            this.textBoxPrice.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+            this.buttonAdd.Location = new System.Drawing.Point(341, 56);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 29;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
-            // labelPrice
+            // labelTransport
             // 
-            this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(89, 107);
-            this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(36, 13);
-            this.labelPrice.TabIndex = 31;
-            this.labelPrice.Text = "Цена:";
+            this.labelTransport.AutoSize = true;
+            this.labelTransport.Location = new System.Drawing.Point(317, 22);
+            this.labelTransport.Name = "labelTransport";
+            this.labelTransport.Size = new System.Drawing.Size(124, 13);
+            this.labelTransport.TabIndex = 33;
+            this.labelTransport.Text = "Способ передвижения:";
             // 
             // FormRoute
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 358);
-            this.Controls.Add(this.labelPrice);
-            this.Controls.Add(this.textBoxPrice);
-            this.Controls.Add(this.buttonTransport);
+            this.ClientSize = new System.Drawing.Size(513, 396);
+            this.Controls.Add(this.labelTransport);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.textBoxCityTo);
             this.Controls.Add(this.labelCityTo);
             this.Controls.Add(this.textBoxCityFrom);
             this.Controls.Add(this.labelCityFrom);
             this.Name = "FormRoute";
             this.Text = "Создание направления путешествия";
+            this.Load += new System.EventHandler(this.FormRoute_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,11 +150,10 @@ namespace TravelAgencyView
         private System.Windows.Forms.Label labelCityFrom;
         private System.Windows.Forms.Label labelCityTo;
         private System.Windows.Forms.TextBox textBoxCityTo;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonTransport;
-        private System.Windows.Forms.TextBox textBoxPrice;
-        private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Label labelTransport;
     }
 }

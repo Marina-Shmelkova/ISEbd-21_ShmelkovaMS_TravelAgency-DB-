@@ -38,12 +38,18 @@ namespace TravelAgencyView
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
             this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
+            this.textBoxFIO = new System.Windows.Forms.TextBox();
+            this.textBoxPhonenumber = new System.Windows.Forms.TextBox();
+            this.labelFIO = new System.Windows.Forms.Label();
+            this.labelPhone = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePickerBirthday = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labelRole
             // 
             this.labelRole.AutoSize = true;
-            this.labelRole.Location = new System.Drawing.Point(62, 125);
+            this.labelRole.Location = new System.Drawing.Point(62, 218);
             this.labelRole.Name = "labelRole";
             this.labelRole.Size = new System.Drawing.Size(35, 13);
             this.labelRole.TabIndex = 23;
@@ -52,14 +58,14 @@ namespace TravelAgencyView
             // comboBoxRole
             // 
             this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Location = new System.Drawing.Point(119, 122);
+            this.comboBoxRole.Location = new System.Drawing.Point(119, 218);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(137, 21);
             this.comboBoxRole.TabIndex = 22;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(122, 74);
+            this.textBoxPassword.Location = new System.Drawing.Point(119, 74);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(137, 20);
             this.textBoxPassword.TabIndex = 21;
@@ -73,7 +79,7 @@ namespace TravelAgencyView
             // 
             // buttonCansel
             // 
-            this.buttonCansel.Location = new System.Drawing.Point(195, 166);
+            this.buttonCansel.Location = new System.Drawing.Point(204, 261);
             this.buttonCansel.Name = "buttonCansel";
             this.buttonCansel.Size = new System.Drawing.Size(75, 23);
             this.buttonCansel.TabIndex = 19;
@@ -83,7 +89,7 @@ namespace TravelAgencyView
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(95, 166);
+            this.buttonAdd.Location = new System.Drawing.Point(94, 261);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 18;
@@ -116,11 +122,65 @@ namespace TravelAgencyView
             this.npgsqlDataAdapter1.SelectCommand = null;
             this.npgsqlDataAdapter1.UpdateCommand = null;
             // 
+            // textBoxFIO
+            // 
+            this.textBoxFIO.Location = new System.Drawing.Point(119, 116);
+            this.textBoxFIO.Name = "textBoxFIO";
+            this.textBoxFIO.Size = new System.Drawing.Size(137, 20);
+            this.textBoxFIO.TabIndex = 24;
+            // 
+            // textBoxPhonenumber
+            // 
+            this.textBoxPhonenumber.Location = new System.Drawing.Point(119, 156);
+            this.textBoxPhonenumber.Name = "textBoxPhonenumber";
+            this.textBoxPhonenumber.Size = new System.Drawing.Size(137, 20);
+            this.textBoxPhonenumber.TabIndex = 25;
+            // 
+            // labelFIO
+            // 
+            this.labelFIO.AutoSize = true;
+            this.labelFIO.Location = new System.Drawing.Point(62, 123);
+            this.labelFIO.Name = "labelFIO";
+            this.labelFIO.Size = new System.Drawing.Size(37, 13);
+            this.labelFIO.TabIndex = 26;
+            this.labelFIO.Text = "ФИО:";
+            // 
+            // labelPhone
+            // 
+            this.labelPhone.AutoSize = true;
+            this.labelPhone.Location = new System.Drawing.Point(12, 159);
+            this.labelPhone.Name = "labelPhone";
+            this.labelPhone.Size = new System.Drawing.Size(96, 13);
+            this.labelPhone.TabIndex = 27;
+            this.labelPhone.Text = "Номер телефона:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Дата рождения:";
+            // 
+            // dateTimePickerBirthday
+            // 
+            this.dateTimePickerBirthday.Location = new System.Drawing.Point(119, 190);
+            this.dateTimePickerBirthday.Name = "dateTimePickerBirthday";
+            this.dateTimePickerBirthday.Size = new System.Drawing.Size(137, 20);
+            this.dateTimePickerBirthday.TabIndex = 29;
+            // 
             // FormRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 235);
+            this.ClientSize = new System.Drawing.Size(335, 316);
+            this.Controls.Add(this.dateTimePickerBirthday);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPhone);
+            this.Controls.Add(this.labelFIO);
+            this.Controls.Add(this.textBoxPhonenumber);
+            this.Controls.Add(this.textBoxFIO);
             this.Controls.Add(this.labelRole);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.textBoxPassword);
@@ -146,5 +206,11 @@ namespace TravelAgencyView
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelEmail;
         private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
+        private System.Windows.Forms.TextBox textBoxFIO;
+        private System.Windows.Forms.TextBox textBoxPhonenumber;
+        private System.Windows.Forms.Label labelFIO;
+        private System.Windows.Forms.Label labelPhone;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBirthday;
     }
 }

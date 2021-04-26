@@ -35,6 +35,7 @@ namespace TravelAgencyView
             this.транспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отелиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.номераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.личныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.забронироватьПутешествиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -60,7 +61,8 @@ namespace TravelAgencyView
             this.направленияОтдыхаToolStripMenuItem,
             this.транспортToolStripMenuItem,
             this.отелиToolStripMenuItem,
-            this.номераToolStripMenuItem});
+            this.номераToolStripMenuItem,
+            this.типНомераToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -91,6 +93,14 @@ namespace TravelAgencyView
             this.номераToolStripMenuItem.Name = "номераToolStripMenuItem";
             this.номераToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.номераToolStripMenuItem.Text = "Номера";
+            this.номераToolStripMenuItem.Click += new System.EventHandler(this.номераToolStripMenuItem_Click);
+            // 
+            // типНомераToolStripMenuItem
+            // 
+            this.типНомераToolStripMenuItem.Name = "типНомераToolStripMenuItem";
+            this.типНомераToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.типНомераToolStripMenuItem.Text = "Тип номера";
+            this.типНомераToolStripMenuItem.Click += new System.EventHandler(this.типНомераToolStripMenuItem_Click);
             // 
             // личныеДанныеToolStripMenuItem
             // 
@@ -143,5 +153,6 @@ namespace TravelAgencyView
         private System.Windows.Forms.ToolStripMenuItem номераToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem личныеДанныеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem забронироватьПутешествиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типНомераToolStripMenuItem;
     }
 }

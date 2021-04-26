@@ -28,5 +28,6 @@ namespace TravelAgencyView
             var form = Container.Resolve<FormRegistration>();
             form.ShowDialog();
         }
+
     }
 }

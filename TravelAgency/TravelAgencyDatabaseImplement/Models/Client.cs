@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace TravelAgencyDatabaseImplement
+namespace TravelAgencyDatabaseImplement.Models
 {
     public partial class Client
     {
@@ -13,6 +13,7 @@ namespace TravelAgencyDatabaseImplement
         {
             Contract = new HashSet<Contract>();
         }
+
         public int Clientid { get; set; }
         public string Nameclient { get; set; }
         public string Phonenumber { get; set; }
@@ -20,6 +21,7 @@ namespace TravelAgencyDatabaseImplement
         public string Email { get; set; }
         public string Password { get; set; }
         public int Status { get; set; }
+
         public virtual ICollection<Contract> Contract { get; set; }
     }
 }

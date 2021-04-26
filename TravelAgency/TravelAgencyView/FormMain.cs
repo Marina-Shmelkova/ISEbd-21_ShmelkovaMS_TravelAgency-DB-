@@ -32,8 +32,8 @@ namespace TravelAgencyView
         private void личныеДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormClientData>();
-            if (form.ShowDialog() == DialogResult.OK)
-                RefreshDataGrid();
+            // if (form.ShowDialog() == DialogResult.OK)
+            //RefreshDataGrid();
         }
 
         private void направленияОтдыхаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,6 +69,30 @@ namespace TravelAgencyView
                 return;
             }
             var form = Container.Resolve<FormHotels>();
+            form.ShowDialog();
+        }
+
+        private void номераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string message = AdminCheck();
+            if (message != null)
+            {
+                MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var form = Container.Resolve<FormRooms>();
+            form.ShowDialog();
+        }
+
+        private void типНомераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string message = AdminCheck();
+            if (message != null)
+            {
+                MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var form = Container.Resolve<FormTypeofnumber>();
             form.ShowDialog();
         }
     }

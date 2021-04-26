@@ -5,17 +5,21 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace TravelAgencyDatabaseImplement
+namespace TravelAgencyDatabaseImplement.Models
 {
     public partial class Transport
     {
+        public Transport()
+        {
+            Route = new HashSet<Route>();
+        }
+
         public int Transportid { get; set; }
         public string Routefrom { get; set; }
         public string Routeto { get; set; }
         public string Viewtransport { get; set; }
-        public int Priceticket { get; set; }
-        public int Routeid { get; set; }
+        public decimal Priceticket { get; set; }
 
-        public virtual Route Route { get; set; }
+        public virtual ICollection<Route> Route { get; set; }
     }
 }

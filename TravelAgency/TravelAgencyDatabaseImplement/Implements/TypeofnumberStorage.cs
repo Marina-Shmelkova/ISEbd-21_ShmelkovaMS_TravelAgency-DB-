@@ -5,6 +5,7 @@ using System.Linq;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.Implements
 {
@@ -14,12 +15,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                return context.Typeofnumber.Include(x => x.Numberofhotel).Select(rec => new TypeofnumberViewModel
-                {
-                    Id = rec.Typeofnumberid,
-                    Viewnumber = rec.Viewnumber,
-                    Numberofhotel = rec.Numberofhotel.ToDictionary(x => x.Numberofhotelid, x => x.Price)
-                })
+                return context.Typeofnumber.Include(x => x.Numberofhotel).Select(CreateModel)
                 .ToList();
             }
         }
@@ -33,12 +29,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             {
                 return context.Typeofnumber
                 .Where(rec => rec.Viewnumber == model.Viewnumber)
-                .Select(rec => new TypeofnumberViewModel
-                {
-                    Id = rec.Typeofnumberid,
-                    Viewnumber = rec.Viewnumber,
-                    Numberofhotel = rec.Numberofhotel.ToDictionary(x => x.Numberofhotelid, x => x.Price)
-                })
+                .Select(CreateModel)
                 .ToList();
             }
         }
@@ -53,12 +44,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 var typeofnumber = context.Typeofnumber
                 .FirstOrDefault(rec => rec.Typeofnumberid == model.Id);
                 return typeofnumber != null ?
-                new TypeofnumberViewModel
-                {
-                    Id = typeofnumber.Typeofnumberid,
-                    Viewnumber = typeofnumber.Viewnumber,
-                    Numberofhotel = typeofnumber.Numberofhotel.ToDictionary(x => x.Numberofhotelid, x => x.Price)
-                } :
+                CreateModel(typeofnumber) :
                 null;
             }
         }
@@ -105,6 +91,15 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             typeofnumber.Viewnumber = model.Viewnumber;
             return typeofnumber;
+        }
+        private TypeofnumberViewModel CreateModel(Typeofnumber typeofnumber)
+        {
+            return new TypeofnumberViewModel
+            {
+                Id = typeofnumber.Typeofnumberid,
+                Viewnumber = typeofnumber.Viewnumber,
+                Numberofhotel = typeofnumber.Numberofhotel.ToDictionary(x => x.Numberofhotelid, x => x.Price)
+            };
         }
     }
 }

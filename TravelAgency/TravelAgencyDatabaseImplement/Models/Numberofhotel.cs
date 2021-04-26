@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace TravelAgencyDatabaseImplement
+namespace TravelAgencyDatabaseImplement.Models
 {
     public partial class Numberofhotel
     {
@@ -18,7 +18,7 @@ namespace TravelAgencyDatabaseImplement
         public string Viewnumber { get; set; }
         public DateTime Datearrival { get; set; }
         public DateTime Dateofdeparture { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public int Typeofnumberid { get; set; }
 
         public virtual Typeofnumber Typeofnumber { get; set; }

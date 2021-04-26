@@ -38,8 +38,7 @@ namespace TravelAgencyView
             if (dataGridView.SelectedRows.Count == 1)
             {
                 var form = Container.Resolve<FormRoute>();
-                form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                form.Number = dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                //RouteId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                 form.ShowDialog();
                 LoadData();
             }

@@ -5,10 +5,11 @@ using System.Linq;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.Implements
 {
-   public class NumberofhotelStorage : INumberofhotelStorage
+    public class NumberofhotelStorage : INumberofhotelStorage
     {
         public List<NumberofhotelViewModel> GetFullList()
         {
@@ -117,6 +118,9 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             numberofhotel.Typeofnumberid = model.Typeofnumberid;
             numberofhotel.Viewnumber = model.Viewnumber;
+            numberofhotel.Datearrival = model.Datearrival;
+            numberofhotel.Dateofdeparture = model.Dateofdeparture;
+            numberofhotel.Price = model.Price;
             return numberofhotel;
         }
     }

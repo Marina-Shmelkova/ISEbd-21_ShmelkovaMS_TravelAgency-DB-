@@ -16,7 +16,6 @@ namespace TravelAgencyBusinessLogic.ViewModels
         [DisplayName("Транспорт")]
         public string Viewtransport { get; set; }
         [DisplayName("Цена билета")]
-        public int Priceticket { get; set; }
-        
+        public decimal Priceticket { get; set; }
     }
 }

@@ -34,9 +34,10 @@ namespace TravelAgencyView
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonUpd = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.ColumnRouteFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRouteTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTicketPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRouteFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,18 +46,19 @@ namespace TravelAgencyView
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.ColumnRouteFrom,
             this.ColumnRouteTo,
-            this.ColumnTicketPrice});
+            this.ColumnPrice});
             this.dataGridView.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView.Location = new System.Drawing.Point(12, 30);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(445, 319);
+            this.dataGridView.Size = new System.Drawing.Size(447, 319);
             this.dataGridView.TabIndex = 0;
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(491, 239);
+            this.buttonRef.Location = new System.Drawing.Point(502, 233);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(90, 22);
             this.buttonRef.TabIndex = 18;
@@ -66,7 +68,7 @@ namespace TravelAgencyView
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(491, 187);
+            this.buttonDel.Location = new System.Drawing.Point(502, 181);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(90, 22);
             this.buttonDel.TabIndex = 17;
@@ -76,7 +78,7 @@ namespace TravelAgencyView
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(491, 129);
+            this.buttonUpd.Location = new System.Drawing.Point(502, 123);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(90, 22);
             this.buttonUpd.TabIndex = 16;
@@ -86,7 +88,7 @@ namespace TravelAgencyView
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(491, 70);
+            this.buttonAdd.Location = new System.Drawing.Point(502, 64);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(90, 22);
             this.buttonAdd.TabIndex = 15;
@@ -94,11 +96,10 @@ namespace TravelAgencyView
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // ColumnRouteFrom
+            // ColumnPrice
             // 
-            this.ColumnRouteFrom.HeaderText = "Родной город";
-            this.ColumnRouteFrom.Name = "ColumnRouteFrom";
-            this.ColumnRouteFrom.Width = 150;
+            this.ColumnPrice.HeaderText = "Цена";
+            this.ColumnPrice.Name = "ColumnPrice";
             // 
             // ColumnRouteTo
             // 
@@ -106,16 +107,23 @@ namespace TravelAgencyView
             this.ColumnRouteTo.Name = "ColumnRouteTo";
             this.ColumnRouteTo.Width = 150;
             // 
-            // ColumnTicketPrice
+            // ColumnRouteFrom
             // 
-            this.ColumnTicketPrice.HeaderText = "Цена транспортных затрат";
-            this.ColumnTicketPrice.Name = "ColumnTicketPrice";
+            this.ColumnRouteFrom.HeaderText = "Родной город";
+            this.ColumnRouteFrom.Name = "ColumnRouteFrom";
+            this.ColumnRouteFrom.Width = 150;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
             // 
             // FormRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 361);
+            this.ClientSize = new System.Drawing.Size(621, 361);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
@@ -132,12 +140,13 @@ namespace TravelAgencyView
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteFrom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteTo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTicketPrice;
         private System.Windows.Forms.Button buttonRef;
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonUpd;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteFrom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrice;
     }
 }

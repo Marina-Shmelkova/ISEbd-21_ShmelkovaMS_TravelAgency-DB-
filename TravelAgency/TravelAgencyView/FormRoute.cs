@@ -9,20 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.BusinessLogics;
+using TravelAgencyBusinessLogic.ViewModels;
+using Unity;
 
 namespace TravelAgencyView
 {
     public partial class FormRoute : Form
     {
-        private readonly TransportLogic _logicT;
-
         private readonly RouteLogic _logicR;
-        private int? Id;
+        private readonly TransportLogic _logicT;
+        public int? Id { get; set; }
+        public string CityFrom { get; set; }
+        public string CityTo { get; set; }
         private int? TransportId { get; set; }
-        public FormRoute(TransportLogic logicT, RouteLogic logicR)
+        public FormRoute(RouteLogic logicR, TransportLogic logicT)
         {
-            _logicT = logicT;
             _logicR = logicR;
+            _logicT = logicT;
             InitializeComponent();
         }
 
@@ -38,23 +41,16 @@ namespace TravelAgencyView
                 MessageBox.Show("Введите город путешествия", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (TransportId == null)
-            {
-                MessageBox.Show("Выберите способ передвижения", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             try
             {
                 RouteBindingModel model = new RouteBindingModel
                 {
-                    Сityfrom = textBoxCityFrom.Text,
-                    Cityto = textBoxCityTo.Text,
-                    //Transport = dataGridView.Value
+                    Transportid = TransportId.Value,
+                    Cityfrom = textBoxCityFrom.Text,
+                    Cityto = textBoxCityTo.Text
                 };
                 if (Id.HasValue) { model.Id = Id.Value; }
                 _logicR.CreateOrUpdate(model);
-                MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DialogResult = DialogResult.OK;
                 Close();
             }
             catch (Exception ex)
@@ -69,14 +65,29 @@ namespace TravelAgencyView
             Close();
         }
 
-        private void buttonTransport_Click(object sender, EventArgs e)
+        private void FormRoute_Load(object sender, EventArgs e)
         {
-           
+            if (Id.HasValue) { textBoxCityFrom.Text = CityFrom; textBoxCityTo.Text = CityTo; }
+            var list = _logicT.Read(null);
+            if (list != null)
+            {
+                dataGridView.DataSource = list;
+                dataGridView.Columns[0].Visible = false;
+                dataGridView.Columns[1].Visible = false;
+                dataGridView.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
-
-        private void textBoxPrice_TextChanged(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
-
+            foreach (var row in dataGridView.SelectedRows)
+            {
+                TransportId = Convert.ToInt32((row as DataGridViewRow).Cells[0].Value);
+                /*transport.Add(_logicT.Read(new TransportBindingModel
+                {
+                    Id = Convert.ToInt32((row as DataGridViewRow).Cells[0].Value)
+                })?[0]);*/
+                MessageBox.Show("Успешно", "Категория выбрана", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
         }
     }
 }

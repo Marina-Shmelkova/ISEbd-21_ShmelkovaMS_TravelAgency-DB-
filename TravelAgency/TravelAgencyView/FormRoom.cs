@@ -40,7 +40,7 @@ namespace TravelAgencyView
                     comboBoxType.DataSource = list;
                     comboBoxType.SelectedItem = null;
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -50,6 +50,8 @@ namespace TravelAgencyView
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
+            Close();
 
         }
 
@@ -64,14 +66,13 @@ namespace TravelAgencyView
             {
                 _logicN.CreateOrUpdate(new NumberofhotelBindingModel
                 {
-                    
-                    Typeofnumberid = Typeofnumberid.Value;
-                    Datearrival = Convert.ToInt32(comboBoxName.SelectedValue),
-                    Count = Convert.ToInt32(textBoxCount.Text),
+
+                    Typeofnumberid = Convert.ToInt32(comboBoxType.SelectedValue),
+                    Viewnumber = textBoxView.Text,
+                    Datearrival = dateTimePickerTo.Value,
+                    Dateofdeparture = dateTimePickerFrom.Value,
                     Price = Convert.ToInt32(textBoxPrice.Text)
                 });
-              
-                _logicN.CreateOrUpdate(model);
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
@@ -80,7 +81,7 @@ namespace TravelAgencyView
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
     }
 }

@@ -46,21 +46,21 @@ namespace TravelAgencyView
                 {
                     Email = textBoxEmail.Text,
                     Password = textBoxPassword.Text,
-                    Nameclient = "",
-                    Datebithday = DateTime.Now,
-                    Phonenumber = "",
+                    Nameclient = textBoxFIO.Text,
+                    Datebithday = dateTimePickerBirthday.Value,
+                    Phonenumber = textBoxPhonenumber.Text,
                     Status = (UserRoles)Enum.Parse(typeof(UserRoles), comboBoxRole.Text)
                 };
                 _logicC.CreateOrUpdate(model);
                 Program.Client = _logicC.Read(model)?[0];
                 MessageBox.Show("Регистрация прошло успешно", "Сообщение",
-              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
-                Close();
                 var form = Container.Resolve<FormAuthorization>();
                 form.ShowDialog();
+                Hide();
             }
-          
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,

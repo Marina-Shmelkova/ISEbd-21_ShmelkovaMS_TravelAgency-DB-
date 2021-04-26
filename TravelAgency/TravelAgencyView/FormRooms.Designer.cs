@@ -34,6 +34,7 @@ namespace TravelAgencyView
             this.buttonUpd = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnView = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDateTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +88,7 @@ namespace TravelAgencyView
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.ColumnType,
             this.ColumnView,
             this.ColumnDateTo,
@@ -96,6 +98,12 @@ namespace TravelAgencyView
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(543, 334);
             this.dataGridView.TabIndex = 28;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
             // 
             // ColumnType
             // 
@@ -147,6 +155,7 @@ namespace TravelAgencyView
         private System.Windows.Forms.Button buttonUpd;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnView;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateTo;

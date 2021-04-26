@@ -10,7 +10,6 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public string Routefrom { get; set; }
         public string Routeto { get; set; }
         public string Viewtransport { get; set; }
-        public int Priceticket { get; set; }
-        public int Routeid { get; set; }
+        public decimal Priceticket { get; set; }
     }
 }

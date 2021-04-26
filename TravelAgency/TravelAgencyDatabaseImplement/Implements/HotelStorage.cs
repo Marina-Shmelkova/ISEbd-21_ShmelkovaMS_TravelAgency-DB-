@@ -6,6 +6,7 @@ using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.Implements
 {
@@ -101,8 +102,6 @@ namespace TravelAgencyDatabaseImplement.Implements
             model.Id = hotel.Hotelid;
             model.City = hotel.City;
             model.Hotelname = hotel.Hotelname;
-            model.Contract = hotel.Contract.ToDictionary(x => x.Contractid, x => x.Countnumberhotel);
-            model.HotelNumberofhotel = hotel.HotelNumberofhotel.ToDictionary(x => x.Hotelid, x => x.Numberofhotelid);
             return model;
         }
     }

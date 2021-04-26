@@ -10,10 +10,12 @@
       "TravelAgencyDatabaseImplement/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.14",
+          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.14",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.14",
           "NETStandard.Library": "2.0.3",
           "Npgsql": "4.1.8",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.11"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.11",
+          "TravelAgencyBusinessLogic": "1.0.0"
         },
         "runtime": {
           "TravelAgencyDatabaseImplement.dll": {}
@@ -370,7 +372,12 @@
           }
         }
       },
-      "System.ValueTuple/4.5.0": {}
+      "System.ValueTuple/4.5.0": {},
+      "TravelAgencyBusinessLogic/1.0.0": {
+        "runtime": {
+          "TravelAgencyBusinessLogic.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -623,6 +630,11 @@
       "sha512": "sha512-okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
       "path": "system.valuetuple/4.5.0",
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
+    },
+    "TravelAgencyBusinessLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

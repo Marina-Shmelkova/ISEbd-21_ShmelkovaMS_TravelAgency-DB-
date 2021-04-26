@@ -32,6 +32,7 @@ namespace TravelAgencyView
 
         private void buttonInput_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrEmpty(textBoxEmail.Text) || string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK,
@@ -44,11 +45,12 @@ namespace TravelAgencyView
                 MessageBox.Show("Неверный Email или пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
-                Close();
-                var form = Container.Resolve<FormMain>();
-                form.ShowDialog();
-            
+            Program.Client = client;
+
+            var form = Container.Resolve<FormMain>();
+            form.ShowDialog();
+            Hide();
+
         }
 
     }

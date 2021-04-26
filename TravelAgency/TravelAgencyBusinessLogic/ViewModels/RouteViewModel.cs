@@ -11,6 +11,6 @@ namespace TravelAgencyBusinessLogic.ViewModels
         public string Cityto { get; set; }
         public decimal? Price { get; set; }
         public Dictionary<int, int> Contract { get; set; }
-        public Dictionary<int, (string, string, string, int)> Transport { get; set; }
+        public Dictionary<int, (string, string, string, decimal)> Transport { get; set; }
     }
 }

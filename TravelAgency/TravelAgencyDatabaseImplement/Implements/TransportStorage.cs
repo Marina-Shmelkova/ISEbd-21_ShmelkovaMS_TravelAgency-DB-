@@ -1,27 +1,21 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.Implements
 {
-   public class TransportStorage : ITransportStorage
+    public class TransportStorage : ITransportStorage
     {
         public List<TransportViewModel> GetFullList()
         {
             using (var context = new TravelAgencyContext())
             {
-                return context.Transport.Select(rec => new TransportViewModel
-                {
-                    Id = rec.Transportid,
-                    Routefrom = rec.Routefrom,
-                    Routeto = rec.Routeto,
-                    Viewtransport = rec.Viewtransport,
-                    Priceticket = rec.Priceticket,
-                    Routeid = rec.Routeid
-                })
+                return context.Transport.Include(x => x.Route).Select(CreateModel)
                 .ToList();
             }
         }
@@ -33,17 +27,9 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                return context.Transport
+                return context.Transport.Include(x => x.Route)
                 .Where(rec => rec.Routeto == model.Routeto)
-                .Select(rec => new TransportViewModel
-                {
-                    Id = rec.Transportid,
-                    Routefrom = rec.Routefrom,
-                    Routeto = rec.Routeto,
-                    Viewtransport = rec.Viewtransport,
-                    Priceticket = rec.Priceticket,
-                    Routeid = rec.Routeid
-                })
+                .Select(CreateModel)
                 .ToList();
             }
         }
@@ -55,18 +41,9 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                var transport = context.Transport
+                var accounting = context.Transport.Include(x => x.Route)
                 .FirstOrDefault(rec => rec.Transportid == model.Id);
-                return transport != null ?
-                new TransportViewModel
-                {
-                    Id = transport.Transportid,
-                    Routefrom = transport.Routefrom,
-                    Routeto = transport.Routeto,
-                    Viewtransport = transport.Viewtransport,
-                    Priceticket = transport.Priceticket,
-                    Routeid = transport.Routeid
-                } :
+                return accounting != null ? CreateModel(accounting) :
                 null;
             }
         }
@@ -109,13 +86,22 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
         }
 
+        private TransportViewModel CreateModel(Transport transport)
+        {
+            TransportViewModel model = new TransportViewModel();
+            model.Id = transport.Transportid;
+            model.Routefrom = transport.Routefrom;
+            model.Routeto = transport.Routeto;
+            model.Viewtransport = transport.Viewtransport;
+            model.Priceticket = transport.Priceticket;
+            return model;
+        }
         private Transport CreateModel(TransportBindingModel model, Transport transport, TravelAgencyContext database)
         {
             transport.Routefrom = model.Routefrom;
             transport.Routeto = model.Routeto;
             transport.Viewtransport = model.Viewtransport;
             transport.Priceticket = model.Priceticket;
-            transport.Routeid = model.Routeid;
             return transport;
         }
     }

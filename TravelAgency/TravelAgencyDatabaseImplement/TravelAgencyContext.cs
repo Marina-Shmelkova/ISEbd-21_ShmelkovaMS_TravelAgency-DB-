@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using TravelAgencyDatabaseImplement.Models;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -50,6 +51,7 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnType("date");
 
                 entity.Property(e => e.Email)
+                    .IsRequired()
                     .HasColumnName("email")
                     .HasMaxLength(255);
 
@@ -58,10 +60,17 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnName("nameclient")
                     .HasMaxLength(255);
 
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnName("password")
+                    .HasMaxLength(255);
+
                 entity.Property(e => e.Phonenumber)
                     .IsRequired()
                     .HasColumnName("phonenumber")
                     .HasMaxLength(255);
+
+                entity.Property(e => e.Status).HasColumnName("status");
             });
 
             modelBuilder.Entity<Contract>(entity =>
@@ -70,9 +79,7 @@ namespace TravelAgencyDatabaseImplement
 
                 entity.Property(e => e.Contractid).HasColumnName("contractid");
 
-                entity.Property(e => e.Clientid)
-                    .HasColumnName("clientid")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Clientid).HasColumnName("clientid");
 
                 entity.Property(e => e.Countnumberhotel).HasColumnName("countnumberhotel");
 
@@ -92,13 +99,9 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnName("datetotravel")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Hotelid)
-                    .HasColumnName("hotelid")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Hotelid).HasColumnName("hotelid");
 
-                entity.Property(e => e.Routeid)
-                    .HasColumnName("routeid")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Routeid).HasColumnName("routeid");
 
                 entity.HasOne(d => d.Client)
                     .WithMany(p => p.Contract)
@@ -140,13 +143,9 @@ namespace TravelAgencyDatabaseImplement
 
                 entity.ToTable("hotel_numberofhotel");
 
-                entity.Property(e => e.Hotelid)
-                    .HasColumnName("hotelid")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Hotelid).HasColumnName("hotelid");
 
-                entity.Property(e => e.Numberofhotelid)
-                    .HasColumnName("numberofhotelid")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Numberofhotelid).HasColumnName("numberofhotelid");
 
                 entity.HasOne(d => d.Hotel)
                     .WithMany(p => p.HotelNumberofhotel)
@@ -173,11 +172,11 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnName("dateofdeparture")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Price).HasColumnName("price");
+                entity.Property(e => e.Price)
+                    .HasColumnName("price")
+                    .HasColumnType("numeric(15,2)");
 
-                entity.Property(e => e.Typeofnumberid)
-                    .HasColumnName("typeofnumberid")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Typeofnumberid).HasColumnName("typeofnumberid");
 
                 entity.Property(e => e.Viewnumber)
                     .IsRequired()
@@ -201,9 +200,16 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnName("cityto")
                     .HasMaxLength(255);
 
+                entity.Property(e => e.Transportid).HasColumnName("transportid");
+
                 entity.Property(e => e.Сityfrom)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                entity.HasOne(d => d.Transport)
+                    .WithMany(p => p.Route)
+                    .HasForeignKey(d => d.Transportid)
+                    .HasConstraintName("routefr");
             });
 
             modelBuilder.Entity<Transport>(entity =>
@@ -212,16 +218,14 @@ namespace TravelAgencyDatabaseImplement
 
                 entity.Property(e => e.Transportid).HasColumnName("transportid");
 
-                entity.Property(e => e.Priceticket).HasColumnName("priceticket");
+                entity.Property(e => e.Priceticket)
+                    .HasColumnName("priceticket")
+                    .HasColumnType("numeric(15,2)");
 
                 entity.Property(e => e.Routefrom)
                     .IsRequired()
                     .HasColumnName("routefrom")
                     .HasMaxLength(255);
-
-                entity.Property(e => e.Routeid)
-                    .HasColumnName("routeid")
-                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Routeto)
                     .IsRequired()
@@ -232,11 +236,6 @@ namespace TravelAgencyDatabaseImplement
                     .IsRequired()
                     .HasColumnName("viewtransport")
                     .HasMaxLength(255);
-
-                entity.HasOne(d => d.Route)
-                    .WithMany(p => p.Transport)
-                    .HasForeignKey(d => d.Routeid)
-                    .HasConstraintName("transportfk");
             });
 
             modelBuilder.Entity<Typeofnumber>(entity =>
