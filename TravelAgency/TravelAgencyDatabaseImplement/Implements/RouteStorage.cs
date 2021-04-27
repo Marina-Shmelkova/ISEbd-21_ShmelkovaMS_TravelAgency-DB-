@@ -95,9 +95,9 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             RouteViewModel model = new RouteViewModel();
             model.Id = route.Routeid;
-            model.Сityfrom = route.Сityfrom;
+            model.Cityfrom = route.Сityfrom;
             model.Cityto = route.Cityto;
-            model.Price = route.Transport.Priceticket;
+           // model.Price = route.Transport.Priceticket;
             return model;
         }
     }

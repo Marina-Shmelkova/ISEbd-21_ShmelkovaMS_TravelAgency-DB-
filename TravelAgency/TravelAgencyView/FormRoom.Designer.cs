@@ -41,11 +41,13 @@ namespace TravelAgencyView
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.labelHotel = new System.Windows.Forms.Label();
+            this.comboBoxHotel = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(199, 258);
+            this.buttonCancel.Location = new System.Drawing.Point(199, 280);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 18;
@@ -55,7 +57,7 @@ namespace TravelAgencyView
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(82, 258);
+            this.buttonSave.Location = new System.Drawing.Point(82, 280);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 17;
@@ -75,7 +77,7 @@ namespace TravelAgencyView
             // labelView
             // 
             this.labelView.AutoSize = true;
-            this.labelView.Location = new System.Drawing.Point(57, 72);
+            this.labelView.Location = new System.Drawing.Point(57, 104);
             this.labelView.Name = "labelView";
             this.labelView.Size = new System.Drawing.Size(70, 13);
             this.labelView.TabIndex = 20;
@@ -84,7 +86,7 @@ namespace TravelAgencyView
             // labelDatearrival
             // 
             this.labelDatearrival.AutoSize = true;
-            this.labelDatearrival.Location = new System.Drawing.Point(57, 117);
+            this.labelDatearrival.Location = new System.Drawing.Point(57, 149);
             this.labelDatearrival.Name = "labelDatearrival";
             this.labelDatearrival.Size = new System.Drawing.Size(75, 13);
             this.labelDatearrival.TabIndex = 21;
@@ -93,7 +95,7 @@ namespace TravelAgencyView
             // labelDateofdeparture
             // 
             this.labelDateofdeparture.AutoSize = true;
-            this.labelDateofdeparture.Location = new System.Drawing.Point(55, 157);
+            this.labelDateofdeparture.Location = new System.Drawing.Point(55, 189);
             this.labelDateofdeparture.Name = "labelDateofdeparture";
             this.labelDateofdeparture.Size = new System.Drawing.Size(77, 13);
             this.labelDateofdeparture.TabIndex = 22;
@@ -102,7 +104,7 @@ namespace TravelAgencyView
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(89, 214);
+            this.labelPrice.Location = new System.Drawing.Point(89, 246);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(36, 13);
             this.labelPrice.TabIndex = 23;
@@ -118,21 +120,21 @@ namespace TravelAgencyView
             // 
             // textBoxView
             // 
-            this.textBoxView.Location = new System.Drawing.Point(153, 72);
+            this.textBoxView.Location = new System.Drawing.Point(153, 104);
             this.textBoxView.Name = "textBoxView";
             this.textBoxView.Size = new System.Drawing.Size(121, 20);
             this.textBoxView.TabIndex = 25;
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(153, 211);
+            this.textBoxPrice.Location = new System.Drawing.Point(153, 243);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(121, 20);
             this.textBoxPrice.TabIndex = 28;
             // 
             // dateTimePickerTo
             // 
-            this.dateTimePickerTo.Location = new System.Drawing.Point(156, 117);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(156, 149);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(118, 20);
             this.dateTimePickerTo.TabIndex = 29;
@@ -140,17 +142,36 @@ namespace TravelAgencyView
             // 
             // dateTimePickerFrom
             // 
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(156, 157);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(156, 189);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(118, 20);
             this.dateTimePickerFrom.TabIndex = 30;
             this.dateTimePickerFrom.Value = new System.DateTime(2001, 7, 11, 0, 0, 0, 0);
+            // 
+            // labelHotel
+            // 
+            this.labelHotel.AutoSize = true;
+            this.labelHotel.Location = new System.Drawing.Point(57, 71);
+            this.labelHotel.Name = "labelHotel";
+            this.labelHotel.Size = new System.Drawing.Size(41, 13);
+            this.labelHotel.TabIndex = 31;
+            this.labelHotel.Text = "Отель:";
+            // 
+            // comboBoxHotel
+            // 
+            this.comboBoxHotel.FormattingEnabled = true;
+            this.comboBoxHotel.Location = new System.Drawing.Point(153, 68);
+            this.comboBoxHotel.Name = "comboBoxHotel";
+            this.comboBoxHotel.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHotel.TabIndex = 32;
             // 
             // FormRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 324);
+            this.Controls.Add(this.comboBoxHotel);
+            this.Controls.Add(this.labelHotel);
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.textBoxPrice);
@@ -185,5 +206,7 @@ namespace TravelAgencyView
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.DateTimePicker dateTimePickerTo;
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
+        private System.Windows.Forms.Label labelHotel;
+        private System.Windows.Forms.ComboBox comboBoxHotel;
     }
 }

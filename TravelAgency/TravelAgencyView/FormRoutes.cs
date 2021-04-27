@@ -28,8 +28,22 @@ namespace TravelAgencyView
         {
             if (dataGridView.SelectedRows.Count == 1)
             {
-                _logicR.Delete(new RouteBindingModel { Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value) });
-                LoadData();
+                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int id =
+                   Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+                    try
+                    {
+                        _logicR.Delete(new RouteBindingModel { Id = id });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                    }
+                    LoadData();
+                }
             }
         }
 
@@ -38,9 +52,11 @@ namespace TravelAgencyView
             if (dataGridView.SelectedRows.Count == 1)
             {
                 var form = Container.Resolve<FormRoute>();
-                //RouteId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                form.ShowDialog();
-                LoadData();
+                form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
         }
 
@@ -63,22 +79,23 @@ namespace TravelAgencyView
         }
         private void LoadData()
         {
-            var list = _logicR.Read(null);
-            if (list != null)
+            try
             {
-                try
+                var list = _logicR.Read(null);
+                if (list != null)
                 {
-                    dataGridView.Rows.Clear();
-                    foreach (var elem in list)
-                    {
-                        dataGridView.Rows.Add(new object[]
-                        { elem.Id, elem.Сityfrom, elem.Cityto, elem.Price});
-                    }
+                    dataGridView.DataSource = list;
+                    dataGridView.Columns[0].Visible = false;
+                    dataGridView.Columns[3].Visible = false;
+                    dataGridView.Columns[4].Visible = false;
+                    dataGridView.Columns[5].Visible = false;
+                    dataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
             }
         }
     }

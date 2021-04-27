@@ -12,6 +12,6 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public DateTime Dateofdeparture { get; set; }
         public decimal Price { get; set; }
         public int Typeofnumberid { get; set; }
-        public Dictionary<int, decimal> HotelNumberofhotel { get; set; }
+        public Dictionary<int, string> HotelNumberofhotel { get; set; }
     }
 }

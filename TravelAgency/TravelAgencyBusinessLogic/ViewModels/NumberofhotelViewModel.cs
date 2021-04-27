@@ -13,6 +13,6 @@ namespace TravelAgencyBusinessLogic.ViewModels
         public decimal Price { get; set; }
         public string Type { get; set; }
         public int Typeofnumberid { get; set; }
-        public Dictionary<int, decimal> HotelNumberofhotel { get; set; }
+        public Dictionary<int, string> HotelNumberofhotel { get; set; }
     }
 }

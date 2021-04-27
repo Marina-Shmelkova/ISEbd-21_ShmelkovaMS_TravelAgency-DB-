@@ -228,4 +228,4 @@ C:\Users\user\source\repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\Tr
 C:\Users\user\source\repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyView\bin\Debug\Unity.Container.pdb
 C:\Users\user\source\repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyView\obj\Debug\TravelAgencyView.csproj.CopyComplete
 C:\Users\user\source\repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyView\obj\Debug\TravelAgencyView.FormTypeofnumber.resources
-C:\Users\user\source\repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyView\obj\Debug\TravelAgencyView.FormRouteTransport.resources
+C:\Users\user\source\repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyView\obj\Debug\TravelAgencyView.FormTravelReservation.resources

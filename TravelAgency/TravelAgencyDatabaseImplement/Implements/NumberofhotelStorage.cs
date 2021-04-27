@@ -15,16 +15,9 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                return context.Numberofhotel.Include(x => x.Typeofnumber).Select(rec => new NumberofhotelViewModel
-                {
-                    Id = rec.Numberofhotelid,
-                    Viewnumber = rec.Viewnumber,
-                    Datearrival = rec.Datearrival,
-                    Dateofdeparture = rec.Dateofdeparture,
-                    Typeofnumberid = rec.Typeofnumberid,
-                    Type = rec.Typeofnumber.Viewnumber,
-                    Price = rec.Price
-                })
+                return context.Numberofhotel.Include(x => x.Typeofnumber).Include(x => x.HotelNumberofhotel)
+                .ThenInclude(x => x.Hotel)
+                .Select(CreateModel)
                 .ToList();
             }
         }
@@ -37,18 +30,10 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                return context.Numberofhotel.Include(x => x.Typeofnumber)
+                return context.Numberofhotel.Include(x => x.Typeofnumber).Include(x => x.HotelNumberofhotel)
+                .ThenInclude(x => x.Hotel)
                 .Where(rec => rec.Viewnumber == model.Viewnumber)
-                .Select(rec => new NumberofhotelViewModel
-                {
-                    Id = rec.Numberofhotelid,
-                    Viewnumber = rec.Viewnumber,
-                    Datearrival = rec.Datearrival,
-                    Dateofdeparture = rec.Dateofdeparture,
-                    Typeofnumberid = rec.Typeofnumberid,
-                    Type = rec.Typeofnumber.Viewnumber,
-                    Price = rec.Price
-                })
+                .Select(CreateModel)
                 .ToList();
             }
         }
@@ -61,15 +46,10 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                var numberofhotel = context.Numberofhotel
+                var numberofhotel = context.Numberofhotel.Include(x => x.HotelNumberofhotel)
+                .ThenInclude(x => x.Hotel)
                 .FirstOrDefault(rec => rec.Numberofhotelid == model.Id);
-                return numberofhotel != null ?
-                new NumberofhotelViewModel
-                {
-                    Id = numberofhotel.Numberofhotelid,
-                    Typeofnumberid = numberofhotel.Typeofnumberid,
-                    Viewnumber = numberofhotel.Viewnumber
-                } :
+                return numberofhotel != null ? CreateModel(numberofhotel) : 
                 null;
             }
         }
@@ -78,8 +58,22 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                context.Numberofhotel.Add(CreateModel(model, new Numberofhotel()));
-                context.SaveChanges();
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        Numberofhotel numberofhotel = CreateModel(model, new Numberofhotel());
+                        context.Numberofhotel.Add(numberofhotel);
+                        context.SaveChanges();
+                        numberofhotel = CreateModel(model, numberofhotel, context);
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
             }
         }
 
@@ -87,13 +81,27 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                var element = context.Numberofhotel.FirstOrDefault(rec => rec.Numberofhotelid == model.Id);
-                if (element == null)
+                using (var transaction = context.Database.BeginTransaction())
                 {
-                    throw new Exception("Номер не найден");
+                    try
+                    {
+                        var element = context.Numberofhotel.FirstOrDefault(rec => rec.Numberofhotelid ==
+                       model.Id);
+                        if (element == null)
+                        {
+                            throw new Exception("Номер не найден");
+                        }
+                        CreateModel(model, element, context);
+                        context.SaveChanges();
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
                 }
-                CreateModel(model, element);
-                context.SaveChanges();
+                
             }
         }
 
@@ -113,7 +121,19 @@ namespace TravelAgencyDatabaseImplement.Implements
                 }
             }
         }
-
+        private NumberofhotelViewModel CreateModel(Numberofhotel numberofhotel)
+        {
+            NumberofhotelViewModel model = new NumberofhotelViewModel();
+            model.Id = numberofhotel.Numberofhotelid;
+            model.Viewnumber = numberofhotel.Viewnumber;
+            model.Datearrival = numberofhotel.Datearrival;
+            model.Dateofdeparture = numberofhotel.Dateofdeparture;
+            model.Typeofnumberid = numberofhotel.Typeofnumberid;
+            model.Type = numberofhotel.Typeofnumber.Viewnumber;
+            model.Price = numberofhotel.Price;
+            model.HotelNumberofhotel = numberofhotel.HotelNumberofhotel.ToDictionary(x => x.Hotelid, x => x.Hotel.Hotelname);
+            return model;
+        }
         private Numberofhotel CreateModel(NumberofhotelBindingModel model, Numberofhotel numberofhotel)
         {
             numberofhotel.Typeofnumberid = model.Typeofnumberid;
@@ -121,6 +141,43 @@ namespace TravelAgencyDatabaseImplement.Implements
             numberofhotel.Datearrival = model.Datearrival;
             numberofhotel.Dateofdeparture = model.Dateofdeparture;
             numberofhotel.Price = model.Price;
+            return numberofhotel;
+        }
+        private Numberofhotel CreateModel(NumberofhotelBindingModel model, Numberofhotel numberofhotel, TravelAgencyContext context)
+        {
+            numberofhotel.Typeofnumberid = model.Typeofnumberid;
+            numberofhotel.Viewnumber = model.Viewnumber;
+            numberofhotel.Datearrival = model.Datearrival;
+            numberofhotel.Dateofdeparture = model.Dateofdeparture;
+            numberofhotel.Price = model.Price;
+            if (model.Id.HasValue)
+            {
+                var roomsHotel = context.HotelNumberofhotel.Where(rec =>
+               rec.Numberofhotelid == model.Id.Value).ToList();
+                // удалили те, которых нет в модели
+                context.HotelNumberofhotel.RemoveRange(roomsHotel.Where(rec =>
+                !model.HotelNumberofhotel.ContainsKey(rec.Hotelid)).ToList());
+                context.SaveChanges();
+                // обновили количество у существующих записей
+               
+            }
+            // добавили новые
+            foreach (var pc in model.HotelNumberofhotel)
+            {
+                context.HotelNumberofhotel.Add(new HotelNumberofhotel
+                {
+                    Numberofhotelid = numberofhotel.Numberofhotelid,
+                    Hotelid = pc.Key
+                });
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (DbUpdateException e)
+                {
+                    throw;
+                }
+            }
             return numberofhotel;
         }
     }

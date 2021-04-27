@@ -204,6 +204,7 @@ namespace TravelAgencyDatabaseImplement
 
                 entity.Property(e => e.Сityfrom)
                     .IsRequired()
+                    .HasColumnName("cityfrom")
                     .HasMaxLength(255);
 
                 entity.HasOne(d => d.Transport)

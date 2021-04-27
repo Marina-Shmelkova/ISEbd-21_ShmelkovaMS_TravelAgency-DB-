@@ -114,6 +114,7 @@ namespace TravelAgencyView
             this.забронироватьПутешествиеToolStripMenuItem.Name = "забронироватьПутешествиеToolStripMenuItem";
             this.забронироватьПутешествиеToolStripMenuItem.Size = new System.Drawing.Size(178, 20);
             this.забронироватьПутешествиеToolStripMenuItem.Text = "Забронировать путешествие";
+            this.забронироватьПутешествиеToolStripMenuItem.Click += new System.EventHandler(this.забронироватьПутешествиеToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 

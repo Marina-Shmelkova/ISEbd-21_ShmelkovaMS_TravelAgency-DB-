@@ -28,7 +28,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyContext())
             {
                 return context.Transport.Include(x => x.Route)
-                .Where(rec => rec.Routeto == model.Routeto)
+                .Where(rec => rec.Routeto == model.Routeto && rec.Routefrom == model.Routefrom)
                 .Select(CreateModel)
                 .ToList();
             }
@@ -51,7 +51,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                context.Transport.Add(CreateModel(model, new Transport(), context));
+                context.Transport.Add(CreateModel(model, new Transport()));
                 context.SaveChanges();
             }
         }
@@ -65,7 +65,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 {
                     throw new Exception("Способ передвижения не найден");
                 }
-                CreateModel(model, element, context);
+                CreateModel(model, element);
                 context.SaveChanges();
             }
         }
@@ -96,7 +96,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             model.Priceticket = transport.Priceticket;
             return model;
         }
-        private Transport CreateModel(TransportBindingModel model, Transport transport, TravelAgencyContext database)
+        private Transport CreateModel(TransportBindingModel model, Transport transport)
         {
             transport.Routefrom = model.Routefrom;
             transport.Routeto = model.Routeto;

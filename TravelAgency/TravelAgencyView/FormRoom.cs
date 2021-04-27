@@ -18,11 +18,14 @@ namespace TravelAgencyView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private NumberofhotelLogic _logicN { get; set; }
+        private HotelLogic _logicH { get; set; }
         private TypeofnumberLogic _logicT { get; set; }
+        private Dictionary<int, string> roomHotel;
         public int? Id { get; set; }
         private int? Typeofnumberid { get; set; }
-        public FormRoom(NumberofhotelLogic logicN, TypeofnumberLogic logicT)
+        public FormRoom(NumberofhotelLogic logicN, TypeofnumberLogic logicT, HotelLogic logicH)
         {
+            _logicH = logicH;
             _logicN = logicN;
             _logicT = logicT;
             InitializeComponent();
@@ -40,12 +43,29 @@ namespace TravelAgencyView
                     comboBoxType.DataSource = list;
                     comboBoxType.SelectedItem = null;
                 }
-
+                var listH = _logicH.Read(null);
+                foreach (var component in list)
+                {
+                    comboBoxHotel.DisplayMember = "Hotelname";
+                    comboBoxHotel.ValueMember = "Id";
+                    comboBoxHotel.DataSource = listH;
+                    comboBoxHotel.SelectedItem = null;
+                }
+                if (Id.HasValue)
+                {
+                    var room = _logicN.Read(new NumberofhotelBindingModel { Id = Id.Value })?[0];
+                    roomHotel = room?.HotelNumberofhotel;
+                }
+                else
+                {
+                    roomHotel = new Dictionary<int, string> ();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -64,15 +84,17 @@ namespace TravelAgencyView
             }
             try
             {
+                roomHotel.Add(Convert.ToInt32(comboBoxHotel.SelectedValue), comboBoxHotel.Text);
                 _logicN.CreateOrUpdate(new NumberofhotelBindingModel
                 {
 
                     Typeofnumberid = Convert.ToInt32(comboBoxType.SelectedValue),
+                    HotelNumberofhotel = roomHotel,
                     Viewnumber = textBoxView.Text,
                     Datearrival = dateTimePickerTo.Value,
                     Dateofdeparture = dateTimePickerFrom.Value,
                     Price = Convert.ToInt32(textBoxPrice.Text)
-                });
+                }) ;
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();

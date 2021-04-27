@@ -95,5 +95,11 @@ namespace TravelAgencyView
             var form = Container.Resolve<FormTypeofnumber>();
             form.ShowDialog();
         }
+
+        private void забронироватьПутешествиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormTravelReservation>();
+            form.ShowDialog();
+        }
     }
 }

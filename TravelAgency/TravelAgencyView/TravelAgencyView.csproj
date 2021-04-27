@@ -222,12 +222,6 @@
     <Compile Include="FormRoutes.Designer.cs">
       <DependentUpon>FormRoutes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRouteTransport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRouteTransport.Designer.cs">
-      <DependentUpon>FormRouteTransport.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTransport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +239,12 @@
     </Compile>
     <Compile Include="FormRooms.Designer.cs">
       <DependentUpon>FormRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTravelReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTravelReservation.Designer.cs">
+      <DependentUpon>FormTravelReservation.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTypeofnumber.cs">
       <SubType>Form</SubType>
@@ -287,14 +287,14 @@
     <EmbeddedResource Include="FormRoutes.resx">
       <DependentUpon>FormRoutes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRouteTransport.resx">
-      <DependentUpon>FormRouteTransport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormTransport.resx">
       <DependentUpon>FormTransport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTransports.resx">
       <DependentUpon>FormTransports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTravelReservation.resx">
+      <DependentUpon>FormTravelReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTypeofnumber.resx">
       <DependentUpon>FormTypeofnumber.cs</DependentUpon>

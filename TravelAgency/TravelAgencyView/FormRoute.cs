@@ -16,17 +16,15 @@ namespace TravelAgencyView
 {
     public partial class FormRoute : Form
     {
+        [Dependency]
+        public new IUnityContainer Container { get; set; }
         private readonly RouteLogic _logicR;
-        private readonly TransportLogic _logicT;
         public int? Id { get; set; }
-        public string CityFrom { get; set; }
-        public string CityTo { get; set; }
-        private int? TransportId { get; set; }
-        public FormRoute(RouteLogic logicR, TransportLogic logicT)
+        public FormRoute(RouteLogic logicR)
         {
             _logicR = logicR;
-            _logicT = logicT;
             InitializeComponent();
+
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -45,12 +43,16 @@ namespace TravelAgencyView
             {
                 RouteBindingModel model = new RouteBindingModel
                 {
-                    Transportid = TransportId.Value,
                     Cityfrom = textBoxCityFrom.Text,
                     Cityto = textBoxCityTo.Text
                 };
-                if (Id.HasValue) { model.Id = Id.Value; }
+                if (Id.HasValue) 
+                { 
+                    model.Id = Id; 
+                }
                 _logicR.CreateOrUpdate(model);
+                MessageBox.Show("Успешно", "Сохранено",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             catch (Exception ex)
@@ -67,27 +69,13 @@ namespace TravelAgencyView
 
         private void FormRoute_Load(object sender, EventArgs e)
         {
-            if (Id.HasValue) { textBoxCityFrom.Text = CityFrom; textBoxCityTo.Text = CityTo; }
-            var list = _logicT.Read(null);
-            if (list != null)
+            if (Id.HasValue)
             {
-                dataGridView.DataSource = list;
-                dataGridView.Columns[0].Visible = false;
-                dataGridView.Columns[1].Visible = false;
-                dataGridView.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                var route = _logicR.Read(new RouteBindingModel { Id = Id.Value })?[0];
+                if (route == null) { return; }
+                textBoxCityFrom.Text = route.Cityfrom;
+                textBoxCityTo.Text = route.Cityto;
             }
-        }
-        private void ButtonAdd_Click(object sender, EventArgs e)
-        {
-            foreach (var row in dataGridView.SelectedRows)
-            {
-                TransportId = Convert.ToInt32((row as DataGridViewRow).Cells[0].Value);
-                /*transport.Add(_logicT.Read(new TransportBindingModel
-                {
-                    Id = Convert.ToInt32((row as DataGridViewRow).Cells[0].Value)
-                })?[0]);*/
-                MessageBox.Show("Успешно", "Категория выбрана", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } 
         }
     }
 }

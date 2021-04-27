@@ -88,7 +88,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                context.Contract.Add(CreateModel(model, new Contract(), context));
+                context.Contract.Add(CreateModel(model, new Contract()));
                 context.SaveChanges();
             }
         }
@@ -102,7 +102,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 {
                     throw new Exception("Договор не найден");
                 }
-                CreateModel(model, element, context);
+                CreateModel(model, element);
                 context.SaveChanges();
             }
         }
@@ -124,7 +124,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
         }
 
-        private Contract CreateModel(ContractBindingModel model, Contract contract, TravelAgencyContext database)
+        private Contract CreateModel(ContractBindingModel model, Contract contract)
         {
             contract.Clientid = model.Clientid;
             contract.Datetotravel = model.Datetotravel;
