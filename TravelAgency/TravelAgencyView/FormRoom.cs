@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.BusinessLogics;
@@ -22,7 +21,8 @@ namespace TravelAgencyView
         private TypeofnumberLogic _logicT { get; set; }
         private Dictionary<int, string> roomHotel;
         public int? Id { get; set; }
-        private int? Typeofnumberid { get; set; }
+        public int HotelId { get; set; }
+        private int? ChangedHotelId;
         public FormRoom(NumberofhotelLogic logicN, TypeofnumberLogic logicT, HotelLogic logicH)
         {
             _logicH = logicH;
@@ -59,6 +59,11 @@ namespace TravelAgencyView
                 {
                     var room = _logicN.Read(new NumberofhotelBindingModel { Id = Id.Value })?[0];
                     roomHotel = room?.HotelNumberofhotel;
+                    comboBoxType.SelectedItem = list.FirstOrDefault(x => x.Id == room.Typeofnumberid);
+                    ChangedHotelId = HotelId;
+                    comboBoxHotel.SelectedItem = listH.FirstOrDefault(x => x.Id == HotelId);
+                    textBoxView.Text = room.Viewnumber;
+                    textBoxPrice.Text = room.Price.ToString();
                 }
                 else
                 {
@@ -86,17 +91,40 @@ namespace TravelAgencyView
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            decimal price;
+            if (!decimal.TryParse(textBoxPrice.Text, out price))
+            {
+                MessageBox.Show("Цена должна быть числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (price <= 0)
+            {
+                MessageBox.Show("Цена должна быть больше нуля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
-                roomHotel.Add(Convert.ToInt32(comboBoxHotel.SelectedValue), comboBoxHotel.Text);
-                _logicN.CreateOrUpdate(new NumberofhotelBindingModel
+                if (!roomHotel.ContainsKey(Convert.ToInt32(comboBoxHotel.SelectedValue)))
                 {
-
+                    roomHotel.Add(Convert.ToInt32(comboBoxHotel.SelectedValue), comboBoxHotel.Text);
+                    if (Id.HasValue && ChangedHotelId.HasValue)
+                    {
+                        roomHotel.Remove(ChangedHotelId.Value);
+                    }
+                }
+                
+                NumberofhotelBindingModel model = new NumberofhotelBindingModel
+                {
                     Typeofnumberid = Convert.ToInt32(comboBoxType.SelectedValue),
                     HotelNumberofhotel = roomHotel,
                     Viewnumber = textBoxView.Text,
-                    Price = Convert.ToInt32(textBoxPrice.Text)
-                }) ;
+                    Price = price
+                };
+                if (Id.HasValue)
+                {
+                    model.Id = Id;
+                }
+                _logicN.CreateOrUpdate(model);
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();

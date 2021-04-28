@@ -162,6 +162,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAdminTravelReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminTravelReservation.Designer.cs">
+      <DependentUpon>FormAdminTravelReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAuthorization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,12 @@
     </Compile>
     <Compile Include="FormReportClientRoutes.Designer.cs">
       <DependentUpon>FormReportClientRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportContracts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportContracts.Designer.cs">
+      <DependentUpon>FormReportContracts.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReportRooms.cs">
       <SubType>Form</SubType>
@@ -266,6 +278,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAdminTravelReservation.resx">
+      <DependentUpon>FormAdminTravelReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAuthorization.resx">
       <DependentUpon>FormAuthorization.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportClientRoutes.resx">
       <DependentUpon>FormReportClientRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportContracts.resx">
+      <DependentUpon>FormReportContracts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportRooms.resx">
       <DependentUpon>FormReportRooms.cs</DependentUpon>

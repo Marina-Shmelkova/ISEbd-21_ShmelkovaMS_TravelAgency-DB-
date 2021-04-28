@@ -16,7 +16,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyContext())
             {
-                return context.Hotel.Include(x => x.HotelNumberofhotel).Include(x => x.Contract).Select(CreateModel)
+                return context.Hotel.Include(x => x.HotelNumberofhotel).ThenInclude(x => x.Numberofhotel).Select(CreateModel)
                 .ToList();
             }
         }
@@ -28,7 +28,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                return context.Hotel.Include(x => x.HotelNumberofhotel).Include(x => x.Contract)
+                return context.Hotel.Include(x => x.HotelNumberofhotel).ThenInclude(x => x.Numberofhotel)
                 .Where(rec => rec.Hotelname == model.Hotelname)
                 .Select(CreateModel)
                 .ToList();
@@ -42,7 +42,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                var hotel = context.Hotel.Include(x => x.HotelNumberofhotel).Include(x => x.Contract)
+                var hotel = context.Hotel.Include(x => x.HotelNumberofhotel).ThenInclude(x => x.Numberofhotel)
                 .FirstOrDefault(rec => rec.Hotelid == model.Id);
                 return hotel != null ? CreateModel(hotel) :
                 null;

@@ -53,6 +53,7 @@ namespace TravelAgencyView
                 _logicR.CreateOrUpdate(model);
                 MessageBox.Show("Успешно", "Сохранено",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
                 Close();
             }
             catch (Exception ex)

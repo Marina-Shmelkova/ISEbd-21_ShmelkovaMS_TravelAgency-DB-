@@ -4,6 +4,7 @@ using System.Text;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyBusinessLogic.Enums;
 
 namespace TravelAgencyBusinessLogic.BusinessLogics
 {
@@ -25,6 +26,11 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
             return storage.GetClientInfo(model);
         }
 
+        public List<ReportClientViewModel> GetFullClientInfo()
+        {
+            return storage.GetFullClientInfo();
+        }
+
         public List<ReportRoomsViewModel> GetReportRooms()
         {
             return storage.GetRooms();
@@ -37,6 +43,23 @@ namespace TravelAgencyBusinessLogic.BusinessLogics
                 return null;
             }
             return storage.GetClientRoute(model);
+        }
+
+        public List<ReportClientRoute> GetFullClientRoute()
+        {
+            return storage.GetFullClientRoute();
+        }
+
+        public List<ReportClientViewModel> GetClientInfoFiltered(ReportBindingModel model)
+        {
+            if (model == null)
+                return null;
+            if (!model.DateTo.HasValue || !model.DateFrom.HasValue || !model.Status.HasValue)
+                return null;
+            if (model.Status.Value == UserRoles.Агент)
+                return storage.GetFullClientInfoFiltered(model);
+            else
+                return storage.GetClientInfoFiltered(model);
         }
     }
 }

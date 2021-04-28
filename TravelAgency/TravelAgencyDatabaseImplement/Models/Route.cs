@@ -16,7 +16,7 @@ namespace TravelAgencyDatabaseImplement.Models
         }
 
         public int Routeid { get; set; }
-        public string Сityfrom { get; set; }
+        public string Cityfrom { get; set; }
         public string Cityto { get; set; }
 
         public virtual ICollection<Contract> Contract { get; set; }

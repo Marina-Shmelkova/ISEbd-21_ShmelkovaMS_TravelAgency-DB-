@@ -39,9 +39,12 @@ namespace TravelAgencyView
                     dataGridView.Rows.Clear();
                     foreach (var elem in list)
                     {
-                        dataGridView.Rows.Add(new object[]
-                        { elem.Id, elem.Type, elem.Viewnumber, 
-                            elem.Price});
+                        foreach (var hotel in elem.HotelNumberofhotel)
+                        {
+                            dataGridView.Rows.Add(new object[]
+                        { elem.Id, elem.Type, elem.Viewnumber,
+                            elem.Price, hotel.Value, hotel.Key});
+                        }                       
                     }
                 }
                 catch (Exception ex)
@@ -63,9 +66,9 @@ namespace TravelAgencyView
             {
                 var form = Container.Resolve<FormRoom>();
                 form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                //form.Type = dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-                form.ShowDialog();
-                LoadData();
+                form.HotelId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[5].Value);
+                if (form.ShowDialog() == DialogResult.OK)
+                    LoadData();
             }
         }
 

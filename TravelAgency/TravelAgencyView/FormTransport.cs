@@ -39,7 +39,21 @@ namespace TravelAgencyView
             }
             try
             {
-                if (dataGridView.SelectedRows.Count != 1) { return; }
+                if (dataGridView.SelectedRows.Count != 1) 
+                {
+                    MessageBox.Show("Нужно выбрать одну запись маршрута", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; 
+                }
+                decimal price;
+                if (!decimal.TryParse(textBoxPrice.Text, out price)){
+                    MessageBox.Show("Цена должна быть числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (price <= 0)
+                {
+                    MessageBox.Show("Цена должна быть положительной", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 var route = _logicR.Read(new RouteBindingModel { Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value) })?[0];
                 TransportBindingModel model = new TransportBindingModel
                 {
@@ -47,7 +61,7 @@ namespace TravelAgencyView
                     Routeto = route.Cityto,
                     Routeid = route.Id,
                     Viewtransport = textBoxViewTransport.Text,
-                    Priceticket = Convert.ToInt32(textBoxPrice.Text)
+                    Priceticket = price
                 };
                 if (Id.HasValue)
                 {
@@ -82,6 +96,7 @@ namespace TravelAgencyView
                 dataGridView.Columns[0].Visible = false;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
+                dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             if (Id.HasValue)
             {

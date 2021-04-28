@@ -40,3 +40,15 @@ C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelA
 C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.csproj.CopyComplete
 C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.dll
 C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.pdb
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\bin\Debug\netstandard2.0\TravelAgencyDatabaseImplement.deps.json
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\bin\Debug\netstandard2.0\TravelAgencyDatabaseImplement.dll
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\bin\Debug\netstandard2.0\TravelAgencyDatabaseImplement.pdb
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\bin\Debug\netstandard2.0\TravelAgencyBusinessLogic.dll
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\bin\Debug\netstandard2.0\TravelAgencyBusinessLogic.pdb
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.csprojAssemblyReference.cache
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.AssemblyInfoInputs.cache
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.AssemblyInfo.cs
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.csproj.CoreCompileInputs.cache
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.csproj.CopyComplete
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.dll
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyDatabaseImplement\obj\Debug\netstandard2.0\TravelAgencyDatabaseImplement.pdb

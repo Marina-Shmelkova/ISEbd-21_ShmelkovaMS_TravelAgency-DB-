@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj": {}
+    "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj": {
+    "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj",
         "projectName": "TravelAgencyBusinessLogic",
-        "projectPath": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\obj\\",
+        "projectPath": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\ILYA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ILYA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,25 +60,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj": {
+    "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj",
+        "projectUniqueName": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj",
         "projectName": "TravelAgencyDatabaseImplement",
-        "projectPath": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\obj\\",
+        "projectPath": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\TravelAgencyDatabaseImplement.csproj",
+        "packagesPath": "C:\\Users\\ILYA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyDatabaseImplement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ILYA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,8 +91,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj": {
-                "projectPath": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj"
+              "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj"
               }
             }
           }
@@ -148,7 +146,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

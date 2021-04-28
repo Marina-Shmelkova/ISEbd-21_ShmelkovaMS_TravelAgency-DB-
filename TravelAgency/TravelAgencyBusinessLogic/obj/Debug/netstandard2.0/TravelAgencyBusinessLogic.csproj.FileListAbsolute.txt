@@ -25,3 +25,12 @@ C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelA
 C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.AssemblyInfo.cs
 C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.dll
 C:\Users\user\Desktop\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.pdb
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\bin\Debug\netstandard2.0\TravelAgencyBusinessLogic.deps.json
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\bin\Debug\netstandard2.0\TravelAgencyBusinessLogic.dll
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\bin\Debug\netstandard2.0\TravelAgencyBusinessLogic.pdb
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.csprojAssemblyReference.cache
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.AssemblyInfoInputs.cache
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.AssemblyInfo.cs
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.dll
+C:\Users\ILYA\Source\Repos\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\TravelAgency\TravelAgencyBusinessLogic\obj\Debug\netstandard2.0\TravelAgencyBusinessLogic.pdb

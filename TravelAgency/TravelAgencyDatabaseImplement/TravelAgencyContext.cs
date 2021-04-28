@@ -34,7 +34,7 @@ namespace TravelAgencyDatabaseImplement
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5433;Database=TravelAgency;Username=postgres;Password=postgres");
+                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=TravelAgency;Username=ILYA");
             }
         }
 
@@ -127,7 +127,6 @@ namespace TravelAgencyDatabaseImplement
                 entity.HasOne(d => d.Trasport)
                     .WithMany(p => p.Contract)
                     .HasForeignKey(d => d.Trasportid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("transportfk");
             });
 
@@ -199,13 +198,14 @@ namespace TravelAgencyDatabaseImplement
 
                 entity.Property(e => e.Routeid).HasColumnName("routeid");
 
+                entity.Property(e => e.Cityfrom)
+                    .IsRequired()
+                    .HasColumnName("cityfrom")
+                    .HasMaxLength(255);
+
                 entity.Property(e => e.Cityto)
                     .IsRequired()
                     .HasColumnName("cityto")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Сityfrom)
-                    .IsRequired()
                     .HasMaxLength(255);
             });
 

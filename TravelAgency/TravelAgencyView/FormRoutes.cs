@@ -64,8 +64,10 @@ namespace TravelAgencyView
         {
 
             var form = Container.Resolve<FormRoute>();
-            form.ShowDialog();
-            LoadData();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
         private void buttonRef_Click(object sender, EventArgs e)

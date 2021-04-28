@@ -37,9 +37,10 @@ namespace TravelAgencyView
             this.номераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.забронироватьПутешествиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.маршрутыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проживаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.контрактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,8 @@ namespace TravelAgencyView
             this.справочникиToolStripMenuItem,
             this.забронироватьПутешествиеToolStripMenuItem,
             this.маршрутыToolStripMenuItem,
-            this.проживаниеToolStripMenuItem});
+            this.проживаниеToolStripMenuItem,
+            this.контрактыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(735, 24);
@@ -111,15 +113,6 @@ namespace TravelAgencyView
             this.забронироватьПутешествиеToolStripMenuItem.Text = "Забронировать путешествие";
             this.забронироватьПутешествиеToolStripMenuItem.Click += new System.EventHandler(this.забронироватьПутешествиеToolStripMenuItem_Click);
             // 
-            // dataGridView
-            // 
-            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(0, 27);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(735, 355);
-            this.dataGridView.TabIndex = 2;
-            // 
             // маршрутыToolStripMenuItem
             // 
             this.маршрутыToolStripMenuItem.Name = "маршрутыToolStripMenuItem";
@@ -133,6 +126,22 @@ namespace TravelAgencyView
             this.проживаниеToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.проживаниеToolStripMenuItem.Text = "Проживание";
             this.проживаниеToolStripMenuItem.Click += new System.EventHandler(this.ПроживаниеToolStripMenuItem_Click);
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(0, 27);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(735, 355);
+            this.dataGridView.TabIndex = 2;
+            // 
+            // контрактыToolStripMenuItem
+            // 
+            this.контрактыToolStripMenuItem.Name = "контрактыToolStripMenuItem";
+            this.контрактыToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.контрактыToolStripMenuItem.Text = "Контракты";
+            this.контрактыToolStripMenuItem.Click += new System.EventHandler(this.контрактыToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -166,5 +175,6 @@ namespace TravelAgencyView
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.ToolStripMenuItem маршрутыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem проживаниеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem контрактыToolStripMenuItem;
     }
 }

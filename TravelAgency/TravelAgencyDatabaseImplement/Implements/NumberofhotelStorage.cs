@@ -153,7 +153,11 @@ namespace TravelAgencyDatabaseImplement.Implements
                 !model.HotelNumberofhotel.ContainsKey(rec.Hotelid)).ToList());
                 context.SaveChanges();
                 // обновили количество у существующих записей
-               
+                foreach (var elem in roomsHotel)
+                {
+                    model.HotelNumberofhotel.Remove(elem.Hotelid);
+                }
+
             }
             // добавили новые
             foreach (var pc in model.HotelNumberofhotel)

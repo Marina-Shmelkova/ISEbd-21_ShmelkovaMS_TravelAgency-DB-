@@ -97,6 +97,33 @@ namespace TravelAgencyView
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (!HotelId.HasValue)
+            {
+                MessageBox.Show("Выберите номер", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!RouteId.HasValue)
+            {
+                MessageBox.Show("Выберите Маршрут", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!TransportId.HasValue)
+            {
+                MessageBox.Show("Выберите Транспорт", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dateTimePickerHotelTo.Value.Date <= dateTimePickerHotelFrom.Value.Date)
+            {
+                MessageBox.Show("Дата заселения в отель должна быть меньше, чем дата выезда", "Ошибка", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dateTimePickerTravelTo.Value.Date <= dateTimePickerTravelFrom.Value.Date)
+            {
+                MessageBox.Show("Конечная дата путешествия должна быть больше, чем начальная", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 int HotelDays = (dateTimePickerHotelTo.Value.Date - dateTimePickerHotelFrom.Value.Date).Days;
@@ -118,6 +145,7 @@ namespace TravelAgencyView
                 _logicC.CreateOrUpdate(model);
                 MessageBox.Show("Успешно", "Сохранено",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
                 Close();
             }
             catch (Exception ex)

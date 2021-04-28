@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "qb2np9AiT6bGMxYZHT2zmvG2GHgyGeSLQPCw4lgs7+RbfGzYu6avHnYHDW81QySEYCo+t7EML0WRO47xdioyBQ==",
+  "dgSpecHash": "rcnvOBAI/1rmtoAO2/0wbB9W5oKVTIDMdCMbgF6QYuXb9pK58cy5DhOFFw4lINDvv5+MZ+8A3mlLtH5S2xt87Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\source\\repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj",
+  "projectFilePath": "C:\\Users\\ILYA\\Source\\Repos\\ISEbd-21_ShmelkovaMS_TravelAgency-DB-\\TravelAgency\\TravelAgencyBusinessLogic\\TravelAgencyBusinessLogic.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using TravelAgencyBusinessLogic.Enums;
 using TravelAgencyBusinessLogic.BusinessLogics;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.ViewModels;
@@ -23,7 +23,15 @@ namespace TravelAgencyView
 
         private void FormReportClientRoutes_Load(object sender, EventArgs e)
         {
-            var list = logic.GetClientRoutes(new ReportBindingModel { ClientId = Program.Client.Id });
+            List<ReportClientRoute> list;
+            if (Program.Client.Status == UserRoles.Агент)
+            {
+                list = logic.GetFullClientRoute();
+            }
+            else
+            {
+                list = logic.GetClientRoutes(new ReportBindingModel { ClientId = Program.Client.Id });
+            }
             if (list == null)
                 return;
             dataGridView1.DataSource = list;

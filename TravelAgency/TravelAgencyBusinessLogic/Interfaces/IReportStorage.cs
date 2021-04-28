@@ -10,8 +10,16 @@ namespace TravelAgencyBusinessLogic.Interfaces
     {
         List<ReportClientViewModel> GetClientInfo(ReportBindingModel model);
 
+        List<ReportClientViewModel> GetFullClientInfo();
+
+        List<ReportClientViewModel> GetClientInfoFiltered(ReportBindingModel model);
+
+        List<ReportClientViewModel> GetFullClientInfoFiltered(ReportBindingModel model);
+
         List<ReportRoomsViewModel> GetRooms();
 
         List<ReportClientRoute> GetClientRoute(ReportBindingModel model);
+
+        List<ReportClientRoute> GetFullClientRoute();
     }
 }

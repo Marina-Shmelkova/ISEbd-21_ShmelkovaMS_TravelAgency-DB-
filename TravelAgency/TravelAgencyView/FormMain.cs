@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.BusinessLogics;
+using TravelAgencyBusinessLogic.ViewModels;
 using TravelAgencyBusinessLogic.Enums;
 using Unity;
 
@@ -25,13 +26,19 @@ namespace TravelAgencyView
         {
             _LogicC = LogicC;
             _LogicR = LogicR;
-           // Program.Client = _LogicC.Read(new ClientBindingModel { Email = "Агент" })?[0];
-          //  RefreshDataGrid();
             InitializeComponent();
         }
         private void RefreshDataGrid()
         {
-            var list = _LogicR.GetClientInfo(new ReportBindingModel { ClientId = Program.Client?.Id });
+            List<ReportClientViewModel> list;
+            if (Program.Client.Status == UserRoles.Агент)
+            {
+                list = _LogicR.GetFullClientInfo();
+            }
+            else
+            {
+                list = _LogicR.GetClientInfo(new ReportBindingModel { ClientId = Program.Client?.Id });
+            }
             if (list == null) { return; }
             dataGridView.DataSource = list;
             dataGridView.Columns[0].Visible = false;
@@ -104,16 +111,26 @@ namespace TravelAgencyView
 
         private void забронироватьПутешествиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormTravelReservation>();
-            form.ShowDialog();
+            DialogResult status;
+            if (Program.Client.Status == UserRoles.Агент)
+            {
+                var form = Container.Resolve<FormAdminTravelReservation>();
+                status = form.ShowDialog();
+            }
+            else
+            {
+                var form = Container.Resolve<FormTravelReservation>();
+                status = form.ShowDialog();
+            }
+            if (status == DialogResult.OK)
+            {
+                RefreshDataGrid();
+            }
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            var list = _LogicR.GetClientInfo(new ReportBindingModel { ClientId = Program.Client.Id });
-            if (list == null) { return; }
-            dataGridView.DataSource = list;
-            dataGridView.Columns[0].Visible = false;
+            RefreshDataGrid();
         }
 
         private void МаршрутыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,6 +142,12 @@ namespace TravelAgencyView
         private void ПроживаниеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormReportRooms>();
+            form.ShowDialog();
+        }
+
+        private void контрактыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportContracts>();
             form.ShowDialog();
         }
     }

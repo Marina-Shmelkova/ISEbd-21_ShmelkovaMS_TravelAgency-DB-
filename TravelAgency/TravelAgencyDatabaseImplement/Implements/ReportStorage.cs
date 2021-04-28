@@ -4,6 +4,7 @@ using System.Linq;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
+using TravelAgencyDatabaseImplement.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace TravelAgencyDatabaseImplement.Implements
@@ -21,18 +22,43 @@ namespace TravelAgencyDatabaseImplement.Implements
                 {
                     throw new Exception("Клиент не найден");
                 }
-                return client.Contract.Select(x => new ReportClientViewModel
+                return client.Contract.Select(ClientCreateModel).ToList();
+            }
+        }
+
+        public List<ReportClientViewModel> GetFullClientInfo()
+        {
+            using (var context = new TravelAgencyContext())
+            {
+                return context.Contract.Include(x => x.Client)
+                    .Include(x => x.Hotel).Include(x => x.Route)
+                    .Select(ClientCreateModel).ToList();
+            }
+        }
+
+        public List<ReportClientViewModel> GetClientInfoFiltered(ReportBindingModel model)
+        {
+            using (var context = new TravelAgencyContext())
+            {
+                var client = context.Client.Include(x => x.Contract).ThenInclude(x => x.Hotel)
+                    .Include(x => x.Contract).ThenInclude(x => x.Route)
+                    .FirstOrDefault(x => x.Clientid == model.ClientId);
+                if (client == null)
                 {
-                    ClientFIO = client.Nameclient,
-                    ClientId = client.Clientid,
-                    Datebirthday = client.Datebithday,
-                    Phonenumber = client.Phonenumber,
-                    RouteNameFrom = x.Route.Сityfrom,
-                    RouteNameTo = x.Route.Cityto,
-                    HotelName = x.Hotel.Hotelname,
-                    StartDate = x.Datetotravel,
-                    EndDate = x.Datefromtravel
-                }).ToList();
+                    throw new Exception("Клиент не найден");
+                }
+                return context.Contract.Where(x => x.Datefromtravel.Date >= model.DateFrom.Value.Date
+                && x.Datetotravel.Date <= model.DateTo.Value.Date).Select(ClientCreateModel).ToList();
+            }
+        }
+
+        public List<ReportClientViewModel> GetFullClientInfoFiltered(ReportBindingModel model)
+        {
+            using (var context = new TravelAgencyContext())
+            {
+                return context.Contract.Include(x => x.Client)
+                    .Include(x => x.Hotel).Include(x => x.Route).Where(x => x.Datefromtravel.Date >= model.DateFrom.Value.Date 
+                && x.Datetotravel.Date <= model.DateTo.Value.Date).Select(ClientCreateModel).ToList();
             }
         }
 
@@ -64,12 +90,43 @@ namespace TravelAgencyDatabaseImplement.Implements
                 return client.Contract.Select(x => new ReportClientRoute
                 {
                     ClientName = x.Client.Nameclient,
-                    CityFrom = x.Route.Сityfrom,
+                    CityFrom = x.Route.Cityfrom,
                     CityTo = x.Route.Cityto,
                     Transport = x.Route.Transport.FirstOrDefault(rec => rec.Transportid == x.Trasportid).Viewtransport,
                     Price = x.Route.Transport.FirstOrDefault(rec => rec.Transportid == x.Trasportid).Priceticket,
                 }).ToList();
             }
+        }
+
+        public List<ReportClientRoute> GetFullClientRoute()
+        {
+            using (var context = new TravelAgencyContext())
+            {
+                return context.Contract.Select(x => new ReportClientRoute
+                {
+                    ClientName = x.Client.Nameclient,
+                    CityFrom = x.Route.Cityfrom,
+                    CityTo = x.Route.Cityto,
+                    Transport = x.Route.Transport.FirstOrDefault(rec => rec.Transportid == x.Trasportid).Viewtransport,
+                    Price = x.Route.Transport.FirstOrDefault(rec => rec.Transportid == x.Trasportid).Priceticket,
+                }).ToList();
+            }
+        }
+
+        private ReportClientViewModel ClientCreateModel(Contract contract)
+        {
+            return new ReportClientViewModel
+            {
+                ClientFIO = contract.Client.Nameclient,
+                ClientId = contract.Client.Clientid,
+                Datebirthday = contract.Client.Datebithday,
+                Phonenumber = contract.Client.Phonenumber,
+                RouteNameFrom = contract.Route.Cityfrom,
+                RouteNameTo = contract.Route.Cityto,
+                HotelName = contract.Hotel.Hotelname,
+                StartDate = contract.Datetotravel,
+                EndDate = contract.Datefromtravel
+            };
         }
     }
 }

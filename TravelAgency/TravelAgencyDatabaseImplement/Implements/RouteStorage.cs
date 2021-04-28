@@ -86,7 +86,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         }
         private Route CreateModel(RouteBindingModel model, Route route)
         {
-            route.Сityfrom = model.Cityfrom;
+            route.Cityfrom = model.Cityfrom;
             route.Cityto = model.Cityto;
             return route;
         }
@@ -94,7 +94,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             RouteViewModel model = new RouteViewModel();
             model.Id = route.Routeid;
-            model.Cityfrom = route.Сityfrom;
+            model.Cityfrom = route.Cityfrom;
             model.Cityto = route.Cityto;
            // model.Price = route.Transport.Priceticket;
             return model;

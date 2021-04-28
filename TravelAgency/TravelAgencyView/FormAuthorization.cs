@@ -32,7 +32,8 @@ namespace TravelAgencyView
 
         private void buttonInput_Click(object sender, EventArgs e)
         {
-            Program.Client = _logicC.Read(new ClientBindingModel { Email = "1" })?[0];
+            // автоматическая авторизация ибо лень
+            Program.Client = _logicC.Read(new ClientBindingModel { Email = "user" })?[0];
             var form1 = Container.Resolve<FormMain>();
             form1.ShowDialog();
             Hide();
