@@ -102,6 +102,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             model.Id = hotel.Hotelid;
             model.City = hotel.City;
             model.Hotelname = hotel.Hotelname;
+            model.HotelNumberofhotel = hotel.HotelNumberofhotel.ToDictionary(x => x.Numberofhotelid, x => x.Numberofhotel.Viewnumber);
             return model;
         }
     }

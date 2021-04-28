@@ -47,7 +47,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyContext())
             {
                 var numberofhotel = context.Numberofhotel.Include(x => x.HotelNumberofhotel)
-                .ThenInclude(x => x.Hotel)
+                .ThenInclude(x => x.Hotel).Include(x => x.Typeofnumber)
                 .FirstOrDefault(rec => rec.Numberofhotelid == model.Id);
                 return numberofhotel != null ? CreateModel(numberofhotel) : 
                 null;
@@ -126,8 +126,6 @@ namespace TravelAgencyDatabaseImplement.Implements
             NumberofhotelViewModel model = new NumberofhotelViewModel();
             model.Id = numberofhotel.Numberofhotelid;
             model.Viewnumber = numberofhotel.Viewnumber;
-            model.Datearrival = numberofhotel.Datearrival;
-            model.Dateofdeparture = numberofhotel.Dateofdeparture;
             model.Typeofnumberid = numberofhotel.Typeofnumberid;
             model.Type = numberofhotel.Typeofnumber.Viewnumber;
             model.Price = numberofhotel.Price;
@@ -138,8 +136,6 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             numberofhotel.Typeofnumberid = model.Typeofnumberid;
             numberofhotel.Viewnumber = model.Viewnumber;
-            numberofhotel.Datearrival = model.Datearrival;
-            numberofhotel.Dateofdeparture = model.Dateofdeparture;
             numberofhotel.Price = model.Price;
             return numberofhotel;
         }
@@ -147,8 +143,6 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             numberofhotel.Typeofnumberid = model.Typeofnumberid;
             numberofhotel.Viewnumber = model.Viewnumber;
-            numberofhotel.Datearrival = model.Datearrival;
-            numberofhotel.Dateofdeparture = model.Dateofdeparture;
             numberofhotel.Price = model.Price;
             if (model.Id.HasValue)
             {

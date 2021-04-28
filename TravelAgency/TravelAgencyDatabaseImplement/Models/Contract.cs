@@ -18,9 +18,12 @@ namespace TravelAgencyDatabaseImplement.Models
         public int Clientid { get; set; }
         public int Routeid { get; set; }
         public int Hotelid { get; set; }
+        public decimal Price { get; set; }
+        public int Trasportid { get; set; }
 
         public virtual Client Client { get; set; }
         public virtual Hotel Hotel { get; set; }
         public virtual Route Route { get; set; }
+        public virtual Transport Trasport { get; set; }
     }
 }

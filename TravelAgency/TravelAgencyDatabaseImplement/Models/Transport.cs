@@ -11,7 +11,7 @@ namespace TravelAgencyDatabaseImplement.Models
     {
         public Transport()
         {
-            Route = new HashSet<Route>();
+            Contract = new HashSet<Contract>();
         }
 
         public int Transportid { get; set; }
@@ -19,7 +19,9 @@ namespace TravelAgencyDatabaseImplement.Models
         public string Routeto { get; set; }
         public string Viewtransport { get; set; }
         public decimal Priceticket { get; set; }
+        public int Routeid { get; set; }
 
-        public virtual ICollection<Route> Route { get; set; }
+        public virtual Route Route { get; set; }
+        public virtual ICollection<Contract> Contract { get; set; }
     }
 }

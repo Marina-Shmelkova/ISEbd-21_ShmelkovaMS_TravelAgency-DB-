@@ -44,13 +44,17 @@ namespace TravelAgencyView
                     comboBoxType.SelectedItem = null;
                 }
                 var listH = _logicH.Read(null);
-                foreach (var component in list)
+                if (listH != null)
                 {
-                    comboBoxHotel.DisplayMember = "Hotelname";
-                    comboBoxHotel.ValueMember = "Id";
-                    comboBoxHotel.DataSource = listH;
-                    comboBoxHotel.SelectedItem = null;
+                    foreach (var component in list)
+                    {
+                        comboBoxHotel.DisplayMember = "Hotelname";
+                        comboBoxHotel.ValueMember = "Id";
+                        comboBoxHotel.DataSource = listH;
+                        comboBoxHotel.SelectedItem = null;
+                    }
                 }
+                
                 if (Id.HasValue)
                 {
                     var room = _logicN.Read(new NumberofhotelBindingModel { Id = Id.Value })?[0];
@@ -91,8 +95,6 @@ namespace TravelAgencyView
                     Typeofnumberid = Convert.ToInt32(comboBoxType.SelectedValue),
                     HotelNumberofhotel = roomHotel,
                     Viewnumber = textBoxView.Text,
-                    Datearrival = dateTimePickerTo.Value,
-                    Dateofdeparture = dateTimePickerFrom.Value,
                     Price = Convert.ToInt32(textBoxPrice.Text)
                 }) ;
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

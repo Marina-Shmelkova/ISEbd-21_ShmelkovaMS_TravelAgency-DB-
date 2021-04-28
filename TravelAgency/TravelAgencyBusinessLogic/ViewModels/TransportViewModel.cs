@@ -8,7 +8,7 @@ namespace TravelAgencyBusinessLogic.ViewModels
     public class TransportViewModel
     {
         public int Id { get; set; }
-      //  public int Routeid { get; set; }
+        public int RouteId { get; set; }
         [DisplayName("Город отправления")]
         public string Routefrom { get; set; }
         [DisplayName("Город прибытия")]

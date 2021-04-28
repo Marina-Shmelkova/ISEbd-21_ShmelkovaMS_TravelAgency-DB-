@@ -20,8 +20,8 @@ namespace TravelAgencyView
         private readonly ClientLogic _logicC;
         public FormAuthorization(ClientLogic logicC)
         {
-            InitializeComponent();
             _logicC = logicC;
+            InitializeComponent();
         }
 
         private void buttonCansel_Click(object sender, EventArgs e)
@@ -32,7 +32,11 @@ namespace TravelAgencyView
 
         private void buttonInput_Click(object sender, EventArgs e)
         {
-
+            Program.Client = _logicC.Read(new ClientBindingModel { Email = "1" })?[0];
+            var form1 = Container.Resolve<FormMain>();
+            form1.ShowDialog();
+            Hide();
+            return;
             if (string.IsNullOrEmpty(textBoxEmail.Text) || string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButtons.OK,
@@ -45,12 +49,17 @@ namespace TravelAgencyView
                 MessageBox.Show("Неверный Email или пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Program.Client = client;
 
-            var form = Container.Resolve<FormMain>();
-            form.ShowDialog();
-            Hide();
-
+            
+            else
+            {
+                Program.Client = client;
+                var form = Container.Resolve<FormMain>();
+                form.ShowDialog();
+                Hide();
+            }
+               
+            
         }
 
     }

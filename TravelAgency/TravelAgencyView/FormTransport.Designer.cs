@@ -29,35 +29,15 @@ namespace TravelAgencyView
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelRoutefrom = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxRoutefrom = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxRouteto = new System.Windows.Forms.TextBox();
             this.textBoxViewTransport = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // labelRoutefrom
-            // 
-            this.labelRoutefrom.AutoSize = true;
-            this.labelRoutefrom.Location = new System.Drawing.Point(55, 48);
-            this.labelRoutefrom.Name = "labelRoutefrom";
-            this.labelRoutefrom.Size = new System.Drawing.Size(108, 13);
-            this.labelRoutefrom.TabIndex = 0;
-            this.labelRoutefrom.Text = "Город отправления:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Город прибытия:";
             // 
             // label3
             // 
@@ -68,13 +48,6 @@ namespace TravelAgencyView
             this.label3.TabIndex = 2;
             this.label3.Text = "Вид транспорта:";
             // 
-            // textBoxRoutefrom
-            // 
-            this.textBoxRoutefrom.Location = new System.Drawing.Point(169, 45);
-            this.textBoxRoutefrom.Name = "textBoxRoutefrom";
-            this.textBoxRoutefrom.Size = new System.Drawing.Size(132, 20);
-            this.textBoxRoutefrom.TabIndex = 4;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -83,13 +56,6 @@ namespace TravelAgencyView
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Цена билета:";
-            // 
-            // textBoxRouteto
-            // 
-            this.textBoxRouteto.Location = new System.Drawing.Point(169, 93);
-            this.textBoxRouteto.Name = "textBoxRouteto";
-            this.textBoxRouteto.Size = new System.Drawing.Size(132, 20);
-            this.textBoxRouteto.TabIndex = 6;
             // 
             // textBoxViewTransport
             // 
@@ -125,40 +91,43 @@ namespace TravelAgencyView
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // dataGridView
+            // 
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(35, 12);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(352, 126);
+            this.dataGridView.TabIndex = 20;
+            // 
             // FormTransport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 324);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxViewTransport);
-            this.Controls.Add(this.textBoxRouteto);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBoxRoutefrom);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelRoutefrom);
             this.Name = "FormTransport";
             this.Text = "Создание маршрута";
             this.Load += new System.EventHandler(this.FormTransport_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelRoutefrom;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxRoutefrom;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxRouteto;
         private System.Windows.Forms.TextBox textBoxViewTransport;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }

@@ -94,6 +94,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             model.Routeto = transport.Routeto;
             model.Viewtransport = transport.Viewtransport;
             model.Priceticket = transport.Priceticket;
+            model.RouteId = transport.Routeid;
             return model;
         }
         private Transport CreateModel(TransportBindingModel model, Transport transport)
@@ -102,6 +103,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             transport.Routeto = model.Routeto;
             transport.Viewtransport = model.Viewtransport;
             transport.Priceticket = model.Priceticket;
+            transport.Routeid = model.Routeid;
             return transport;
         }
     }

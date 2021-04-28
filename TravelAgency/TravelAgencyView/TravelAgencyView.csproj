@@ -204,6 +204,18 @@
     <Compile Include="FormRegistration.Designer.cs">
       <DependentUpon>FormRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportClientRoutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportClientRoutes.Designer.cs">
+      <DependentUpon>FormReportClientRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportRooms.Designer.cs">
+      <DependentUpon>FormReportRooms.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +286,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistration.resx">
       <DependentUpon>FormRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportClientRoutes.resx">
+      <DependentUpon>FormReportClientRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportRooms.resx">
+      <DependentUpon>FormReportRooms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRoom.resx">
       <DependentUpon>FormRoom.cs</DependentUpon>

@@ -40,7 +40,7 @@ namespace TravelAgencyView
                     foreach (var elem in list)
                     {
                         dataGridView.Rows.Add(new object[]
-                        { elem.Id, elem.Type, elem.Viewnumber, elem.Datearrival, elem.Dateofdeparture, 
+                        { elem.Id, elem.Type, elem.Viewnumber, 
                             elem.Price});
                     }
                 }

@@ -13,6 +13,6 @@ namespace TravelAgencyBusinessLogic.ViewModels
         [DisplayName("Название отеля")]
         public string Hotelname { get; set; }
         public Dictionary<int, int> Contract { get; set; }
-        public Dictionary<int, int> HotelNumberofhotel { get; set; }
+        public Dictionary<int, string> HotelNumberofhotel { get; set; }
     }
 }

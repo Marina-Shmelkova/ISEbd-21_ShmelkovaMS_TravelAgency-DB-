@@ -12,14 +12,14 @@ namespace TravelAgencyDatabaseImplement.Models
         public Route()
         {
             Contract = new HashSet<Contract>();
+            Transport = new HashSet<Transport>();
         }
 
         public int Routeid { get; set; }
         public string Сityfrom { get; set; }
         public string Cityto { get; set; }
-        public int Transportid { get; set; }
 
-        public virtual Transport Transport { get; set; }
         public virtual ICollection<Contract> Contract { get; set; }
+        public virtual ICollection<Transport> Transport { get; set; }
     }
 }

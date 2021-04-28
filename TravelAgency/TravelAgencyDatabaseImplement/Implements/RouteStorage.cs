@@ -41,7 +41,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyContext())
             {
-                var route = context.Route.Include(x => x.Cityto)
+                var route = context.Route.Include(x => x.Transport)
                 .FirstOrDefault(rec => rec.Routeid == model.Id);
                 return route != null ? CreateModel(route) :
                 null;
@@ -90,7 +90,6 @@ namespace TravelAgencyDatabaseImplement.Implements
             route.Cityto = model.Cityto;
             return route;
         }
-
         private RouteViewModel CreateModel(Route route)
         {
             RouteViewModel model = new RouteViewModel();

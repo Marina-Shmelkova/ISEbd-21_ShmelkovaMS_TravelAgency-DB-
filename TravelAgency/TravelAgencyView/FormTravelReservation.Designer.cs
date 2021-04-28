@@ -42,12 +42,12 @@ namespace TravelAgencyView
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewRooms = new System.Windows.Forms.DataGridView();
-            this.buttonHotelRoom = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonHotelRoom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRooms)).BeginInit();
@@ -172,16 +172,6 @@ namespace TravelAgencyView
             this.dataGridViewRooms.Size = new System.Drawing.Size(444, 212);
             this.dataGridViewRooms.TabIndex = 22;
             // 
-            // buttonHotelRoom
-            // 
-            this.buttonHotelRoom.Location = new System.Drawing.Point(630, 142);
-            this.buttonHotelRoom.Name = "buttonHotelRoom";
-            this.buttonHotelRoom.Size = new System.Drawing.Size(90, 40);
-            this.buttonHotelRoom.TabIndex = 23;
-            this.buttonHotelRoom.Text = "Выбрать проживание";
-            this.buttonHotelRoom.UseVisualStyleBackColor = true;
-            this.buttonHotelRoom.Click += new System.EventHandler(this.buttonHotelRoom_Click);
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "id";
@@ -208,6 +198,16 @@ namespace TravelAgencyView
             this.Column5.HeaderText = "Цена";
             this.Column5.Name = "Column5";
             // 
+            // buttonHotelRoom
+            // 
+            this.buttonHotelRoom.Location = new System.Drawing.Point(630, 142);
+            this.buttonHotelRoom.Name = "buttonHotelRoom";
+            this.buttonHotelRoom.Size = new System.Drawing.Size(90, 40);
+            this.buttonHotelRoom.TabIndex = 23;
+            this.buttonHotelRoom.Text = "Выбрать проживание";
+            this.buttonHotelRoom.UseVisualStyleBackColor = true;
+            this.buttonHotelRoom.Click += new System.EventHandler(this.buttonHotelRoom_Click);
+            // 
             // FormTravelReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +228,7 @@ namespace TravelAgencyView
             this.Controls.Add(this.dataGridViewRoute);
             this.Controls.Add(this.dataGridViewTransport);
             this.Name = "FormTravelReservation";
-            this.Text = "FormTravelReservation";
+            this.Text = "Бронь путешествия";
             this.Load += new System.EventHandler(this.FormTravelReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoute)).EndInit();

@@ -12,8 +12,10 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public int Countnumberhotel { get; set; }
         public DateTime Datetohotel { get; set; }
         public DateTime Datefromhotel { get; set; }
+        public decimal Price { get; set; }
         public int Clientid { get; set; }
         public int Routeid { get; set; }
         public int Hotelid { get; set; }
+        public int Transportid { get; set; }
     }
 }

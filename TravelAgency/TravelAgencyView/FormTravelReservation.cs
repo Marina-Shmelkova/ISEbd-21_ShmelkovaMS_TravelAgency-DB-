@@ -49,7 +49,6 @@ namespace TravelAgencyView
             dataGridViewRoute.Columns[0].Visible = false;
             dataGridViewRoute.Columns[3].Visible = false;
             dataGridViewRoute.Columns[4].Visible = false;
-            dataGridViewRoute.Columns[5].Visible = false;
             dataGridViewRoute.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var listN = _logicN.Read(null);
@@ -70,6 +69,9 @@ namespace TravelAgencyView
         private void buttonTransport_Click(object sender, EventArgs e)
         {
             TransportId = Convert.ToInt32(dataGridViewTransport.SelectedRows[0].Cells[0].Value);
+
+            MessageBox.Show("Успешно", "Сохранено",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonRoute_Click(object sender, EventArgs e)
@@ -83,35 +85,64 @@ namespace TravelAgencyView
             }
             dataGridViewTransport.DataSource = list;
             dataGridViewTransport.Columns[0].Visible = false;
+            dataGridViewTransport.Columns[1].Visible = false;
+
+            RouteId = Convert.ToInt32(dataGridViewRoute.SelectedRows[0].Cells[0].Value);
+            MessageBox.Show("Успешно", "Сохранено",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
            // dataGridViewTransport.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             RouteId = Convert.ToInt32(dataGridViewRoute.SelectedRows[0].Cells[0].Value);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            ContractBindingModel model = new ContractBindingModel
+            try
             {
-                Clientid = Program.Client.Id,
-                Hotelid = HotelId.Value,
-                Routeid = RouteId.Value,
-                Datefromhotel = dateTimePickerHotelFrom.Value,
-                Datetohotel = dateTimePickerHotelTo.Value,
-                Datefromtravel = dateTimePickerTravelFrom.Value,
-                Datetotravel = dateTimePickerTravelTo.Value,
-                Countnumberhotel = 1
-            };
-            _logicC.CreateOrUpdate(model);
+                int HotelDays = (dateTimePickerHotelTo.Value.Date - dateTimePickerHotelFrom.Value.Date).Days;
+                decimal Price = Convert.ToDecimal(dataGridViewTransport.SelectedRows[0].Cells[5].Value) +
+                    Convert.ToDecimal(dataGridViewRooms.SelectedRows[0].Cells[4].Value) * HotelDays;
+                ContractBindingModel model = new ContractBindingModel
+                {
+                    Clientid = Program.Client.Id,
+                    Hotelid = HotelId.Value,
+                    Routeid = RouteId.Value,
+                    Transportid = TransportId.Value,
+                    Datefromhotel = dateTimePickerHotelFrom.Value,
+                    Datetohotel = dateTimePickerHotelTo.Value,
+                    Datefromtravel = dateTimePickerTravelFrom.Value,
+                    Datetotravel = dateTimePickerTravelTo.Value,
+                    Price = Price,
+                    Countnumberhotel = 1
+                };
+                _logicC.CreateOrUpdate(model);
+                MessageBox.Show("Успешно", "Сохранено",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException?.Message + "\n" + ex.Message, "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void buttonHotelRoom_Click(object sender, EventArgs e)
         {
+            HotelId = Convert.ToInt32(dataGridViewRooms.SelectedRows[0].Cells[0].Value);
+            MessageBox.Show("Успешно", "Сохранено",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
              HotelId = Convert.ToInt32(dataGridViewRooms.SelectedRows[0].Cells[0].Value);
+
         }
     }
 }

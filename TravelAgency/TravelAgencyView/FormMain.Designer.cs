@@ -36,19 +36,21 @@ namespace TravelAgencyView
             this.отелиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.номераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.личныеДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.забронироватьПутешествиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.маршрутыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.проживаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справочникиToolStripMenuItem,
-            this.личныеДанныеToolStripMenuItem,
-            this.забронироватьПутешествиеToolStripMenuItem});
+            this.забронироватьПутешествиеToolStripMenuItem,
+            this.маршрутыToolStripMenuItem,
+            this.проживаниеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(735, 24);
@@ -102,13 +104,6 @@ namespace TravelAgencyView
             this.типНомераToolStripMenuItem.Text = "Тип номера";
             this.типНомераToolStripMenuItem.Click += new System.EventHandler(this.типНомераToolStripMenuItem_Click);
             // 
-            // личныеДанныеToolStripMenuItem
-            // 
-            this.личныеДанныеToolStripMenuItem.Name = "личныеДанныеToolStripMenuItem";
-            this.личныеДанныеToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
-            this.личныеДанныеToolStripMenuItem.Text = "Личные данные";
-            this.личныеДанныеToolStripMenuItem.Click += new System.EventHandler(this.личныеДанныеToolStripMenuItem_Click);
-            // 
             // забронироватьПутешествиеToolStripMenuItem
             // 
             this.забронироватьПутешествиеToolStripMenuItem.Name = "забронироватьПутешествиеToolStripMenuItem";
@@ -116,28 +111,43 @@ namespace TravelAgencyView
             this.забронироватьПутешествиеToolStripMenuItem.Text = "Забронировать путешествие";
             this.забронироватьПутешествиеToolStripMenuItem.Click += new System.EventHandler(this.забронироватьПутешествиеToolStripMenuItem_Click);
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(735, 355);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(0, 27);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(735, 355);
+            this.dataGridView.TabIndex = 2;
+            // 
+            // маршрутыToolStripMenuItem
+            // 
+            this.маршрутыToolStripMenuItem.Name = "маршрутыToolStripMenuItem";
+            this.маршрутыToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.маршрутыToolStripMenuItem.Text = "Маршруты ";
+            this.маршрутыToolStripMenuItem.Click += new System.EventHandler(this.МаршрутыToolStripMenuItem_Click);
+            // 
+            // проживаниеToolStripMenuItem
+            // 
+            this.проживаниеToolStripMenuItem.Name = "проживаниеToolStripMenuItem";
+            this.проживаниеToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.проживаниеToolStripMenuItem.Text = "Проживание";
+            this.проживаниеToolStripMenuItem.Click += new System.EventHandler(this.ПроживаниеToolStripMenuItem_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 379);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "Главная форма клиента";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,13 +157,14 @@ namespace TravelAgencyView
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem направленияОтдыхаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem транспортToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отелиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem номераToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem личныеДанныеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem забронироватьПутешествиеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типНомераToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.ToolStripMenuItem маршрутыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem проживаниеToolStripMenuItem;
     }
 }

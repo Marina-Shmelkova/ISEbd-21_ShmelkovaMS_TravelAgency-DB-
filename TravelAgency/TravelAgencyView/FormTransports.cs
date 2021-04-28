@@ -32,6 +32,7 @@ namespace TravelAgencyView
                 {
                     dataGridView.DataSource = list;
                     dataGridView.Columns[0].Visible = false;
+                    dataGridView.Columns[1].Visible = false;
                     dataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -56,7 +57,7 @@ namespace TravelAgencyView
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                        MessageBox.Show(ex.Message + "\n" + ex.InnerException?.Message, "Ошибка", MessageBoxButtons.OK,
                        MessageBoxIcon.Error);
                     }
                     LoadData();

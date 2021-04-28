@@ -37,15 +37,13 @@ namespace TravelAgencyView
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDateTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDatefrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(564, 243);
+            this.buttonRef.Location = new System.Drawing.Point(391, 233);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(90, 22);
             this.buttonRef.TabIndex = 32;
@@ -55,7 +53,7 @@ namespace TravelAgencyView
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(564, 191);
+            this.buttonDel.Location = new System.Drawing.Point(391, 181);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(90, 22);
             this.buttonDel.TabIndex = 31;
@@ -65,7 +63,7 @@ namespace TravelAgencyView
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(564, 133);
+            this.buttonUpd.Location = new System.Drawing.Point(391, 123);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(90, 22);
             this.buttonUpd.TabIndex = 30;
@@ -75,7 +73,7 @@ namespace TravelAgencyView
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(564, 74);
+            this.buttonAdd.Location = new System.Drawing.Point(391, 64);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(90, 22);
             this.buttonAdd.TabIndex = 29;
@@ -91,12 +89,10 @@ namespace TravelAgencyView
             this.Column1,
             this.ColumnType,
             this.ColumnView,
-            this.ColumnDateTo,
-            this.ColumnDatefrom,
             this.ColumnPrice});
             this.dataGridView.Location = new System.Drawing.Point(15, 12);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(543, 334);
+            this.dataGridView.Size = new System.Drawing.Size(345, 334);
             this.dataGridView.TabIndex = 28;
             // 
             // Column1
@@ -115,16 +111,6 @@ namespace TravelAgencyView
             this.ColumnView.HeaderText = "Вид";
             this.ColumnView.Name = "ColumnView";
             // 
-            // ColumnDateTo
-            // 
-            this.ColumnDateTo.HeaderText = "Дата заезда";
-            this.ColumnDateTo.Name = "ColumnDateTo";
-            // 
-            // ColumnDatefrom
-            // 
-            this.ColumnDatefrom.HeaderText = "Дата выезда";
-            this.ColumnDatefrom.Name = "ColumnDatefrom";
-            // 
             // ColumnPrice
             // 
             this.ColumnPrice.HeaderText = "Цена за ночь";
@@ -134,7 +120,7 @@ namespace TravelAgencyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 373);
+            this.ClientSize = new System.Drawing.Size(529, 373);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
@@ -158,8 +144,6 @@ namespace TravelAgencyView
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateTo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDatefrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrice;
     }
 }

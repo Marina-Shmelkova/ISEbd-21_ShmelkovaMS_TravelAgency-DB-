@@ -25,7 +25,9 @@ namespace TravelAgencyDatabaseImplement.Implements
                     Datetohotel = rec.Datetohotel,
                     Datefromhotel = rec.Datefromhotel,
                     Routeid = rec.Routeid,
-                    Hotelid = rec.Hotelid
+                    Hotelid = rec.Hotelid,
+                    Price = rec.Price,
+                    Transportid = rec.Trasportid
                 })
                 .ToList();
             }
@@ -51,7 +53,8 @@ namespace TravelAgencyDatabaseImplement.Implements
                     Datetohotel = rec.Datetohotel,
                     Datefromhotel = rec.Datefromhotel,
                     Routeid = rec.Routeid,
-                    Hotelid = rec.Hotelid
+                    Hotelid = rec.Hotelid,
+                    Transportid = rec.Trasportid
                 })
                 .ToList();
             }
@@ -78,7 +81,8 @@ namespace TravelAgencyDatabaseImplement.Implements
                     Datetohotel = contract.Datetohotel,
                     Datefromhotel = contract.Datefromhotel,
                     Routeid = contract.Routeid,
-                    Hotelid = contract.Hotelid
+                    Hotelid = contract.Hotelid,
+                    Transportid = contract.Trasportid
                 } :
                 null;
             }
@@ -134,6 +138,8 @@ namespace TravelAgencyDatabaseImplement.Implements
             contract.Datefromhotel = model.Datefromhotel;
             contract.Routeid = model.Routeid;
             contract.Hotelid = model.Hotelid;
+            contract.Price = model.Price;
+            contract.Trasportid = model.Transportid;
             return contract;
         }
     }

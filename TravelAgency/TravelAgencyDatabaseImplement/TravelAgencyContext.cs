@@ -101,7 +101,13 @@ namespace TravelAgencyDatabaseImplement
 
                 entity.Property(e => e.Hotelid).HasColumnName("hotelid");
 
+                entity.Property(e => e.Price)
+                    .HasColumnName("price")
+                    .HasColumnType("numeric(15,2)");
+
                 entity.Property(e => e.Routeid).HasColumnName("routeid");
+
+                entity.Property(e => e.Trasportid).HasColumnName("trasportid");
 
                 entity.HasOne(d => d.Client)
                     .WithMany(p => p.Contract)
@@ -117,6 +123,12 @@ namespace TravelAgencyDatabaseImplement
                     .WithMany(p => p.Contract)
                     .HasForeignKey(d => d.Routeid)
                     .HasConstraintName("contract_routefk");
+
+                entity.HasOne(d => d.Trasport)
+                    .WithMany(p => p.Contract)
+                    .HasForeignKey(d => d.Trasportid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("transportfk");
             });
 
             modelBuilder.Entity<Hotel>(entity =>
@@ -164,14 +176,6 @@ namespace TravelAgencyDatabaseImplement
 
                 entity.Property(e => e.Numberofhotelid).HasColumnName("numberofhotelid");
 
-                entity.Property(e => e.Datearrival)
-                    .HasColumnName("datearrival")
-                    .HasColumnType("date");
-
-                entity.Property(e => e.Dateofdeparture)
-                    .HasColumnName("dateofdeparture")
-                    .HasColumnType("date");
-
                 entity.Property(e => e.Price)
                     .HasColumnName("price")
                     .HasColumnType("numeric(15,2)");
@@ -200,17 +204,9 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnName("cityto")
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Transportid).HasColumnName("transportid");
-
                 entity.Property(e => e.Сityfrom)
                     .IsRequired()
-                    .HasColumnName("cityfrom")
                     .HasMaxLength(255);
-
-                entity.HasOne(d => d.Transport)
-                    .WithMany(p => p.Route)
-                    .HasForeignKey(d => d.Transportid)
-                    .HasConstraintName("routefr");
             });
 
             modelBuilder.Entity<Transport>(entity =>
@@ -228,6 +224,8 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnName("routefrom")
                     .HasMaxLength(255);
 
+                entity.Property(e => e.Routeid).HasColumnName("routeid");
+
                 entity.Property(e => e.Routeto)
                     .IsRequired()
                     .HasColumnName("routeto")
@@ -237,6 +235,11 @@ namespace TravelAgencyDatabaseImplement
                     .IsRequired()
                     .HasColumnName("viewtransport")
                     .HasMaxLength(255);
+
+                entity.HasOne(d => d.Route)
+                    .WithMany(p => p.Transport)
+                    .HasForeignKey(d => d.Routeid)
+                    .HasConstraintName("transportfk");
             });
 
             modelBuilder.Entity<Typeofnumber>(entity =>
@@ -250,20 +253,6 @@ namespace TravelAgencyDatabaseImplement
                     .HasColumnName("viewnumber")
                     .HasMaxLength(255);
             });
-
-            modelBuilder.HasSequence("client_seq");
-
-            modelBuilder.HasSequence("contract_seq").StartsAt(600);
-
-            modelBuilder.HasSequence("hotel_seq").StartsAt(200);
-
-            modelBuilder.HasSequence("numberofhotel_seq").StartsAt(400);
-
-            modelBuilder.HasSequence("route_seq").StartsAt(100);
-
-            modelBuilder.HasSequence("transport_seq").StartsAt(500);
-
-            modelBuilder.HasSequence("typeofnumber_seq").StartsAt(300);
 
             OnModelCreatingPartial(modelBuilder);
         }
