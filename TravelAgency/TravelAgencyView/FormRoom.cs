@@ -125,6 +125,11 @@ namespace TravelAgencyView
                     model.Id = Id;
                 }
                 _logicN.CreateOrUpdate(model);
+                // Мноооого записей
+                //for (int i = 0; i < 10000; ++i)
+                //{
+                //    _logicN.CreateOrUpdate(model);
+                //}
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();

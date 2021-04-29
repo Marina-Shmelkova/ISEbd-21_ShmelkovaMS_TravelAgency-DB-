@@ -162,6 +162,11 @@ namespace TravelAgencyView
                     Countnumberhotel = 1
                 };
                 _logicC.CreateOrUpdate(model);
+                // Много контрактов же лучше, чем один
+                //for (int i = 0; i < 10000; ++i)
+                //{
+                //    _logicC.CreateOrUpdate(model);
+                //}
                 MessageBox.Show("Успешно", "Сохранено",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
